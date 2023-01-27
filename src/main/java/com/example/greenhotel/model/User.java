@@ -23,10 +23,10 @@ public class User {
     @GeneratedValue(generator = "USER_SEQ_GENERATOR", strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50, unique = true)
     private String username;
 
-    @Column(nullable = false, length = 50, unique = true)
+    @Column(length = 50)
     private String name;
 
     @Column(nullable = false, length = 100)
@@ -35,7 +35,7 @@ public class User {
     @Column(nullable = false, length = 50)
     private String email;
 
-    @Column(nullable = false)
+    @Column
     private String phonenumber;
 
     @ColumnDefault("0")
