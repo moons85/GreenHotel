@@ -1,0 +1,146 @@
+h3{
+  font-family: 'Hahmlet', serif;
+}
+
+p{
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+.btn2{
+  text-align: center;
+  font-size: 11pt;
+  margin-right: 10px;
+  font-family: 'Hahmlet', serif;
+
+}
+
+.name{
+    font-family: 'Hahmlet', serif;
+}
+
+.btn3{
+  font-size: 12pt;
+  padding: 5px 10px;
+  margin: 10px;
+}
+
+.btn4{
+  font-size: 13pt;
+}
+
+.btn5{
+  font-size: 10pt;
+  padding: 10px 12px;
+  margin: 10px;
+}
+
+.h2_title{
+  font-family: 'Hahmlet', serif;
+  letter-spacing: -2px;
+  font-weight: 300;
+}
+
+.heading{
+  font-family: 'Hahmlet', serif;
+  letter-spacing: -2px;
+  font-weight: 300;  
+}
+
+.star{
+  color: #b49178;
+}
+
+.ellipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.colbtn{
+  display: flex;
+  justify-content: flex-end;
+}
+
+#btnkakao{
+  border: #b49178 1px solid;
+  color: #b49178;
+  margin-right: 10px;
+}
+
+#btnkakao:hover{
+  color: #000;
+}
+
+.idcheckbtn{
+padding: 10px 10px;
+letter-spacing: 0;
+font-family: 'Nanum Gothic', sans-serif;
+font-weight: bold 700;
+font-size: 10pt;
+margin-top: 40px;
+width: 100%;
+}
+
+#form-message-success{
+  text-align: right;
+}
+
+.btn_reservation{
+  padding: 10px 10px;
+letter-spacing: 0;
+font-family: 'Nanum Gothic', sans-serif;
+font-weight: bold 700;
+font-size: 10pt;
+}
+
+.pricestyle{
+  letter-spacing: -1px;
+  font-family: 'Hahmlet', serif;
+  color: #222;
+}
+
+li{
+  list-style: none;
+}
+
+.liststyle{
+  padding-inline-start: 0px;}
+
+  .price2{
+    font-size: 14pt;
+  }
+
+.h2_title2{
+  margin-bottom: 10px!important;
+}
+
+.reviewdetailbox{
+  min-height: 250px;
+  background: #fff;
+}
+.reviewdetailsub{
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  background-color: #fff;
+  color: #b49178;
+}
+.reviewdetailsub>:nth-child(1){
+margin-left: 20px;
+margin-right: 50px;
+}
+.reviewdetailsub>:nth-child(2){
+  margin-right: 10px;
+  }
+.reviewdetailboxcontent{
+  padding: 10px;
+  font-size: 13pt;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+@media (max-width: 760px) {
+  .idcheckbtn{
+    margin-top: 0px;}
+}
