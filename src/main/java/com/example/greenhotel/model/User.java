@@ -24,10 +24,10 @@ public class User {
     private int id;
 
     @Column(nullable = false)
-    private String userid;
+    private String username;
 
     @Column(nullable = false, length = 50, unique = true)
-    private String username;
+    private String name;
 
     @Column(nullable = false, length = 100)
     private String password;
