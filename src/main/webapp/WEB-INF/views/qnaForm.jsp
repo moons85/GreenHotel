@@ -19,77 +19,46 @@
     <div class="container">
         <div class="row justify-content-center pb-5 mb-3">
             <div class="col-md-7 heading-section text-center ftco-animate">
-                <h2>FaQ</h2>
+                <h2>QnA List</h2>
             </div>
         </div>
         <div class="row ftco-animate">
             <div class="col-md-12">
                 <div class="carousel-testimony owl-carousel">
-                    <div class="item">
-                        <div class="testimony-wrap d-flex" style="height: 250px;">
-                            <div class="user-img" style="background-image: url(/images/answer.png)">
-                            </div>
-                            <div class="text pl-4">
+                    <c:forEach var="faq" items="${faqs.content}">
+                        <div class="item">
+                            <div class="testimony-wrap d-flex">
+                                <div class="user-img" style="background-image: url(../images/answer2.png)">
+                                </div>
+                                <div class="text pl-4">
                   	<span class="quote d-flex align-items-center justify-content-center">
                       <i class="fa fa-quote-left"></i>
                     </span>
-                                <p>Q. FaQ 질문사항을 적어주세요. 자주 묻는 질문을 적어주세요.</p>
-                                <p class="qnaanswer">A. FaQ 답변을 적어주세요. FaQ 답변을 적어주세요.FaQ 답변을 적어주세요.FaQ 답변을 적어주세요.FaQ 답변을 적어주세요.</p>
+                                    <p>작성자 : ${faq.user.username}</p>
+                                    <p class="qnaanswer">Q. ${faq.title}</p>
+                                    <a href="/auth/qnadetail/${faq.id}">상세보기</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimony-wrap d-flex" style="height: 250px;">
-                            <div class="user-img" style="background-image: url(/images/answer.png)">
-                            </div>
-                            <div class="text pl-4">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="fa fa-quote-left"></i>
-                    </span>
-                                <p>Q. FaQ 질문사항을 적어주세요. 자주 묻는 질문을 적어주세요.</p>
-                                <p class="qnaanswer">A. FaQ 답변을 적어주세요. FaQ 답변을 적어주세요.FaQ 답변을 적어주세요.FaQ 답변을 적어주세요.FaQ 답변을 적어주세요.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimony-wrap d-flex" style="height: 250px;">
-                            <div class="user-img" style="background-image: url(/images/answer.png)">
-                            </div>
-                            <div class="text pl-4">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="fa fa-quote-left"></i>
-                    </span>
-                                <p>Q. FaQ 질문사항을 적어주세요. 자주 묻는 질문을 적어주세요.</p>
-                                <p class="qnaanswer">A. FaQ 답변을 적어주세요. FaQ 답변을 적어주세요.FaQ 답변을 적어주세요.FaQ 답변을 적어주세요.FaQ 답변을 적어주세요.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimony-wrap d-flex" style="height: 250px;">
-                            <div class="user-img" style="background-image: url(/images/answer.png)">
-                            </div>
-                            <div class="text pl-4">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="fa fa-quote-left"></i>
-                    </span>
-                                <p>Q. FaQ 질문사항을 적어주세요. 자주 묻는 질문을 적어주세요.</p>
-                                <p class="qnaanswer">A. FaQ 답변을 적어주세요. FaQ 답변을 적어주세요.FaQ 답변을 적어주세요.FaQ 답변을 적어주세요.FaQ 답변을 적어주세요.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimony-wrap d-flex" style="height: 250px;">
-                            <div class="user-img" style="background-image: url(/images/answer.png)">
-                            </div>
-                            <div class="text pl-4">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="fa fa-quote-left"></i>
-                    </span>
-                                <p>Q. FaQ 질문사항을 적어주세요. 자주 묻는 질문을 적어주세요.</p>
-                                <p class="qnaanswer">A. FaQ 답변을 적어주세요. FaQ 답변을 적어주세요.FaQ 답변을 적어주세요.FaQ 답변을 적어주세요.FaQ 답변을 적어주세요.</p>
-                            </div>
-                        </div>
-                    </div>
+                    </c:forEach>
+                    <ul class="pagination">
+                        <c:choose>
+                            <c:when test="${faqs.first}">
+                                <li class="page-item disabled"><a class="page-link" href="?page=${faqs.number-1}">Previous</a></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li class="page-item"><a class="page-link" href="?page=${faqs.number-1}">Previous</a></li>
+                            </c:otherwise>
+                        </c:choose>
+                        <c:choose>
+                            <c:when test="${faqs.last}">
+                                <li class="page-item disabled"><a class="page-link" href="?page=${faqs.number+1}">Next</a></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li class="page-item"><a class="page-link" href="?page=${faqs.number+1}">Next</a></li>
+                            </c:otherwise>
+                        </c:choose>
+                    </ul>
                 </div>
             </div>
         </div>

@@ -3,6 +3,9 @@ let index = {
         $(".btn-primary").on("click", () => {
             this.test();
         });
+        $("#deletebtn").on("click", () => {
+            this.delete();
+        });
     },
     test : function() {
         var title = document.getElementById("title").value;
@@ -39,7 +42,20 @@ let index = {
             datatype : "json"
         }).done(function(resp) {
             alert("문의가 완료되었습니다.")
-            location.replace("/")
+            location.replace("/auth/qnaForm")
+        }).fail(function(error) {
+            alert("실패");
+        })
+    },
+    delete: function() {
+        const faqId= document.querySelector("#fId").value
+        $.ajax({
+            type : "delete",
+            url : "/api/qna/"+faqId,
+            datatype : "json"
+        }).done(function(resp) {
+            alert("삭제가 완료되었습니다.")
+            location.replace("/auth/qnaForm")
         }).fail(function(error) {
             alert("실패");
         })

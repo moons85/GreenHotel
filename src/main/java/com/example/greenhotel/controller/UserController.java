@@ -42,8 +42,7 @@ public class UserController {
         return "/mypage";
     }
 
-    @GetMapping("/auth/qnaForm")
-    public String qnaForm(){return "/qnaForm";}
+
 
     @GetMapping("/updateUserForm")
     public String updateUserForm() {
