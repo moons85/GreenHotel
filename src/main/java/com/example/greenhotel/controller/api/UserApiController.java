@@ -1,6 +1,7 @@
 package com.example.greenhotel.controller.api;
 
 import com.example.greenhotel.config.auth.PrincipalDetail;
+import com.example.greenhotel.dto.MailDto;
 import com.example.greenhotel.dto.ResponseDto;
 import com.example.greenhotel.model.KakaoProfile;
 import com.example.greenhotel.model.User;
@@ -15,6 +16,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.transaction.Transactional;
 import java.util.Objects;
 
 @RequiredArgsConstructor
@@ -60,4 +62,32 @@ public class UserApiController {
         SecurityContextHolder.getContext().setAuthentication(authenticate);
         return new ResponseDto<>(HttpStatus.OK.value(), 1);
     }
+
+    @PostMapping("/auth/find_id")
+    @ResponseBody
+    public String find_id(@RequestParam("email") String email,@RequestParam("phonenumber") String phonenumber) {
+        System.out.println(email);
+        System.out.println(phonenumber);
+        String result = userService.find_id(email, phonenumber);
+
+        return result;
+    }
+
+    @Transactional
+    @PostMapping("/auth/sendEmail")
+    public String sendEmail(@RequestParam("email") String email, @RequestParam("username") String username){
+        String result = userService.find_pwd(email);
+        if(result==null){
+            System.out.println(result);
+            return result;
+        }
+        else{
+            System.out.println(result);
+            MailDto dto = userService.createMailAndChangePassword(email);
+            userService.mailSend(dto);
+
+            return "/auth/login";
+        }
+    }
+
 }

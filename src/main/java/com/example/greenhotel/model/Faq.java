@@ -30,6 +30,9 @@ public class Faq {
     @Column(nullable = false, length = 50)
     private String title;
 
+    @Column(nullable = false, length = 50)
+    private String category;
+
     @Lob
     private String content;
 

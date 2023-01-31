@@ -1,13 +1,14 @@
 package com.example.greenhotel.service;
 
+import com.example.greenhotel.dto.MailDto;
 import com.example.greenhotel.model.RoleType;
 import com.example.greenhotel.model.User;
 import com.example.greenhotel.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +20,7 @@ public class UserService {
     private final BCryptPasswordEncoder encoder;
 
     private final AuthenticationManager authenticationManager;
+    private final JavaMailSenderImpl mailSender;
 
     @Transactional
     public void 회원가입(User user) {
@@ -49,4 +51,85 @@ public class UserService {
 
 
     }
+    @Transactional
+    public String find_id(String email, String phonenumber) {
+
+        String result = "";
+
+        try {
+            result= userRepository.find_id(email, phonenumber);
+
+        } catch(Exception e) {
+
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
+    @Transactional
+    public String find_pwd(String email) {
+
+        String result = "";
+
+        try {
+            result= userRepository.find_pwd(email);
+
+        } catch(Exception e) {
+
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
+    @Transactional
+    public MailDto createMailAndChangePassword(String memberEmail) {
+        String str = getTempPassword();
+        MailDto dto = new MailDto();
+        dto.setAddress(memberEmail);
+        dto.setTitle("임시비밀번호 안내 이메일 입니다.");
+        dto.setMessage("안녕하세요. 임시비밀번호 안내 관련 이메일 입니다." + " 회원님의 임시 비밀번호는 "
+                + str + " 입니다." + "로그인 후에 비밀번호를 변경을 해주세요");
+        updatePassword(str,memberEmail);
+        return dto;
+    }
+
+    @Transactional
+    public void updatePassword(String str, String userEmail){
+        String memberPassword = str;
+        String encPassword = encoder.encode(memberPassword);
+        String memberId = userRepository.findByMemberEmail(userEmail);
+        userRepository.updatePassword(memberId,encPassword);
+    }
+
+    @Transactional
+    public String getTempPassword(){
+        char[] charSet = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F',
+                'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+
+        String str = "";
+
+        // 문자 배열 길이의 값을 랜덤으로 10개를 뽑아 구문을 작성함
+        int idx = 0;
+        for (int i = 0; i < 10; i++) {
+            idx = (int) (charSet.length * Math.random());
+            str += charSet[idx];
+        }
+        return str;
+    }
+
+    @Transactional
+    public void mailSend(MailDto mailDTO) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(mailDTO.getAddress());
+        message.setSubject(mailDTO.getTitle());
+        message.setText(mailDTO.getMessage());
+        message.setFrom("hyn6305@naver.com");
+        message.setReplyTo("hyn6305@naver.com");
+        System.out.println("message"+message);
+        mailSender.send(message);
+    }
+
+
 }

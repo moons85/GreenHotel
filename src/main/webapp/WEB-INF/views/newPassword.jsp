@@ -7,8 +7,8 @@
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
-                <p class="breadcrumbs mb-2"><span class="mr-2"><a href="/">Home <i class="fa fa-chevron-right"></i></a></span> <span>LogIn <i class="fa fa-chevron-right"></i></span></p>
-                <h1 class="mb-0 bread">LogIn</h1>
+                <p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Account <i class="fa fa-chevron-right"></i></span></p>
+                <h1 class="mb-0 bread">Find Id & Password</h1>
             </div>
         </div>
     </div>
@@ -22,50 +22,38 @@
                     <div class="row no-gutters">
                         <div class="col-lg-8 col-md-7 d-flex align-items-stretch">
                             <div class="contact-wrap w-100 p-md-5 p-4">
-                                <h3 class="mb-4">Login</h3>
+                                <h3 class="mb-4">Find Password</h3>
                                 <div id="form-message-warning" class="mb-4"></div>
-                                <div id="form-message-success" class="mb-4">
-                                    빠르고 편리한 Private Hotel만의 예약 서비스를 이용하고 싶으신가요?
-                                    <br>지금 바로 로그인 후 이용하세요.
-                                </div>
-                                <form method="post" id="contactForm" name="contactForm" class="contactForm" action="/auth/loginProc">
-                                    <div class="row row2">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label class="label" for="username">Id</label>
-                                                <input type="text" class="form-control" name="username" id="username" placeholder="아이디를 입력해주세요.">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label class="label" for="password">Password</label>
-                                                <input type="password" class="form-control" name="password" id="password" placeholder="비밀번호를 입력해주세요.">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 colbtn">
-                                            <div id="form-message-successt" class="mb-4">
-                                                <br>
-                                                계정 정보를 잊어버리셨나요?
-                                                <a href="/auth/findId"> > 아이디 찾기</a>
-                                                <a href="#"> ｜</a>
-                                                <a href="/auth/newPassword"> 비밀번호 찾기</a>
-                                                <br>
-                                                아이디가 없으신가요?
-                                                <a href="/auth/signup"> >회원가입 하러가기</a>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="col-md-12 colbtn">
-                                            <div class="form-group">
-                                                <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=9087b45cc0614d0db706baf5b2bedb62&redirect_uri=http://localhost:8081/auth/kakao/login&response_type=code" class="noneunderline">
-                                                    <img class="kakaotalk_login" src="/images/kakao_login_medium_narrow.png" alt="카카오톡으로 로그인" class="kakaotalk_icon" />
-                                                </a>
-                                                <button type="submit" class="btn btn-primary">Login</button>
-                                                <div class="submitting"></div>
-                                            </div>
+                                <div class="row row2">
+                                    <div class="col-md-9">
+                                        <div class="form-group">
+                                            <label class="label" for="username">ID</label>
+                                            <input type="text" class="form-control" name="username" id="username" placeholder="ID를 입력해주세요.">
                                         </div>
                                     </div>
-                                </form>
+                                    <div class="col-md-9">
+                                        <div class="form-group">
+                                            <label class="label" for="email">Email</label>
+                                            <input type="email" class="form-control" name="email" id="email" placeholder="가입시 사용한 Email을 입력해주세요.">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button class="btn btn-primary idcheckbtn" id="send_code">임시비밀번호 전송하기</button>
+                                    </div>
+                                    <div class="col-md-12 idvalue">
+                                        <!--이메일 확인 할 수 없을때 or 인증 요청 성공-->
+                                    </div>
+                                    <div class="col-md-12 colbtn">
+                                        <div id="form-message-success" class="mb-4">
+                                            <br>
+                                            <a href="/auth/login"> > 로그인 하러가기</a>
+                                            <br>
+                                            아이디가 없으신가요?
+                                            <a href="/auth/signup"> >회원가입 하러가기</a>
+                                        </div>
+                                    </div>
+                                    <br>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-5 d-flex align-items-stretch">
@@ -112,4 +100,5 @@
         </div>
     </div>
 </section>
+<script defer src="/js/newPassword.js"></script>
 <%@ include file="layout/footer.jsp" %>
