@@ -93,10 +93,13 @@
 							<div class="row no-gutters">
 								<div class="col-lg-8 col-md-7 d-flex align-items-stretch">
 									<div class="contact-wrap w-100 p-md-5 p-4">
+									<form method="" class="contactForm" onSubmit="return false;">
+									
 										<h3 class="mb-4">Get in touch</h3>
 										<div id="form-message-warning" class="mb-4"></div>
 										<div id="form-message-success" class="mb-4">문의사항을 남겨주세요.
 											빠른 시일 내로 답변드리겠습니다.</div>
+											
 										<input type="hidden" value="${principal.user.id}" id="userId">
 										<div class="row">
 											<div class="col-md-6">
@@ -151,6 +154,7 @@
 												</div>
 											</div>
 										</div>
+										</form>
 									</div>
 								</div>
 								<div class="col-lg-4 col-md-5 d-flex align-items-stretch">

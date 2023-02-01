@@ -28,6 +28,8 @@
                                     빠르고 편리한 Private Hotel만의 예약 서비스를 이용하고 싶으신가요?
                                     <br>지금 바로 회원가입 후 이용하세요.
                                 </div>
+                                									<form method="" class="contactForm" onSubmit="return false;">
+                                
                                 <div class="row row2">
 
                                     <div class="col-md-10">
@@ -84,10 +86,10 @@
                                             <div class="submitting"></div>
                                         </div>
                                     </div>
+                                    
                                 </div>
-<%--                                <form id="contactForm" name="contactForm" class="contactForm">--%>
-
-<%--                                </form>--%>
+                                                                    </form>
+                                
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-5 d-flex align-items-stretch">
