@@ -18,6 +18,12 @@ public class FaqController {
 
     @Autowired
     private FaqReplyService faqReplyService;
+    
+//    @GetMapping("/auth/qnaForm")
+//    public String qnaForm(Model model){
+//        model.addAttribute("faqs", faqService.글목록());
+//        return "/qnaForm";
+//    }
     @GetMapping("/auth/qnaForm")
     public String qnaForm(Model model, @PageableDefault(size = 3, sort = "id", direction = Sort.Direction.DESC)Pageable pageable){
         model.addAttribute("faqs", faqService.글목록(pageable));

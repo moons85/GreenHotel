@@ -29,6 +29,11 @@ public class FaqService {
         faqRepository.deleteById(id);
     }
 
+//  public List<Faq> 글목록( ){
+//  return faqRepository.findAll();
+//}
+
+    
     public Page<Faq> 글목록(Pageable pageable){
         return faqRepository.findAll(pageable);
     }

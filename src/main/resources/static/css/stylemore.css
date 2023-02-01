@@ -240,6 +240,14 @@ select {
   -moz-appearance:none; /* 파이어폭스 화살표 없애기 */
   appearance:none /* 화살표 없애기 */
 }
+
+.form-control2{
+	border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius:none;
+}
+
+
 @media (max-width: 760px) {
   .idcheckbtn{
     margin-top: 0px;}

@@ -24,6 +24,7 @@
               <div class="contact-wrap w-100 p-md-5 p-4">
                 <h3 class="mb-4">회원 정보 수정</h3>
                 <div id="form-message-warning" class="mb-4"></div>
+               <form method="" class="contactForm" onSubmit="return false;">
                 <div class="row row2">
                   <input type="hidden" value="${principal.user.id}" id="uId">
                   <div class="col-md-10">
@@ -70,6 +71,8 @@
                     </div>
                   </div>
                 </div>
+                                </form>
+                
               </div>
             </div>
             <div class="col-lg-4 col-md-5 d-flex align-items-stretch">
