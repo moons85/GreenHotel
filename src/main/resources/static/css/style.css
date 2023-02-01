@@ -7796,7 +7796,9 @@ button.bg-dark:focus {
   text-align: left !important; }
 
 .text-right {
-  text-align: right !important; }
+  text-align: right !important;
+  cursor: pointer;
+}
 
 .text-center {
   text-align: center !important; }
