@@ -1,8 +1,57 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> </code>
+<link rel="stylesheet" href="/css/roolet.css">
+<style>
+  .modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: none;
+
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .modal.show {
+    display: block;
+  }
+
+  .modal_body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 600px;
+    height: 600px;
+
+    padding: 40px;
+
+    text-align: center;
+
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+
+    transform: translateX(-50%) translateY(-50%);
+  }
+</style>
 
 <%@ include file="layout/header.jsp" %>
+<div class="modal">
+  <div class="modal_body">
+    <h2>룰렛 돌리기</h2>
+    <div class="rouletter">
+      <div class="rouletter-bg"><div class="rouletter-wacu"></div></div>
+      <div class="rouletter-arrow"></div>
+      <button class="rouletter-btn" onclick="play()">start</button>
+    </div>
+  </div>
+</div>
 <section class="hero-wrap hero-wrap-2" style="background-image: url(/images/room-14.png);" data-stellar-background-ratio="0.5">
   <div class="overlay"></div>
   <div class="container">
@@ -80,7 +129,16 @@
                     <span style="font-size: 16pt;">P</span>
                   </div>
                   <div class="text pl-3">
-                    <p><span>Point:</span>${principal.user.point }</p>
+                    <p><span>Point:</span><fmt:formatNumber value="${principal.user.point}" pattern="#,###"/></p>
+                    <c:choose>
+                      <c:when test="${principal.user.point>=500}">
+                        <p class="mb-4">500포인트 이상 적립시 룰렛 돌리기 이벤트</p>
+                        <button class="btn-open-popup">룰렛 돌리기</button>
+                      </c:when>
+                      <c:otherwise>
+                        <p class="mb-4">500포인트 이상 적립시 룰렛 돌리기 이벤트</p>
+                      </c:otherwise>
+                    </c:choose>
                   </div>
                 </div>
                 <div class="dbox w-100 d-flex align-items-center">
@@ -109,4 +167,5 @@
   </div>
   </div>
 </section>
+<script defer src="/js/roolet.js"></script>
 <%@ include file="layout/footer.jsp" %>

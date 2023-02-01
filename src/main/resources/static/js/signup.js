@@ -56,7 +56,7 @@ let index = {
             contentType : "application/json; charset=utf-8",
             datatype : "json"
         }).done(function(resp) {
-            alert("회원가입이 완료되었습니다.")
+            alert("회원가입이 완료되었습니다. 회원가입 축하 포인트 1000포인트 적립!")
             location.replace("/auth/login")
         }).fail(function(error) {
             alert("존재하는 아이디입니다.");
