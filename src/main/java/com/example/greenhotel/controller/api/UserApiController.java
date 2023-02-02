@@ -3,6 +3,7 @@ package com.example.greenhotel.controller.api;
 import com.example.greenhotel.config.auth.PrincipalDetail;
 import com.example.greenhotel.dto.MailDto;
 import com.example.greenhotel.dto.ResponseDto;
+import com.example.greenhotel.model.Event;
 import com.example.greenhotel.model.KakaoProfile;
 import com.example.greenhotel.model.User;
 import com.example.greenhotel.service.UserService;
@@ -31,6 +32,13 @@ public class UserApiController {
         userService.회원가입(user);
         return new ResponseDto<>(HttpStatus.OK.value(), 1);
     }
+
+    @PostMapping("/api/event")
+    public ResponseDto<Integer> eventcoupon(@RequestBody Event event,@AuthenticationPrincipal PrincipalDetail principalDetail){
+        userService.쿠폰발급(event,principalDetail.getUser());
+        return new ResponseDto<>(HttpStatus.OK.value(), 1);
+    }
+
 
     @GetMapping("/auth/api/kakao")
     public ModelAndView join(@RequestAttribute KakaoProfile kakaoProfile) {
@@ -63,6 +71,12 @@ public class UserApiController {
         return new ResponseDto<>(HttpStatus.OK.value(), 1);
     }
 
+//    @PostMapping("/api/point")
+//    public ResponseDto<Integer> pointupdate(@AuthenticationPrincipal PrincipalDetail principalDetail,@RequestBody User user){
+//        userService.포인트적립(principalDetail.getUser(),user);
+//        return new ResponseDto<>(HttpStatus.OK.value(), 1);
+//    }
+
     @PostMapping("/auth/find_id")
     @ResponseBody
     public String find_id(@RequestParam("email") String email,@RequestParam("phonenumber") String phonenumber) {
@@ -89,5 +103,7 @@ public class UserApiController {
             return "/auth/login";
         }
     }
+
+
 
 }

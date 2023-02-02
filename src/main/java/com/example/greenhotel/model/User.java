@@ -38,7 +38,7 @@ public class User {
     @Column
     private String phonenumber;
 
-    @ColumnDefault("0")
+    @Column
     private int point;
 
     @Enumerated(EnumType.STRING)

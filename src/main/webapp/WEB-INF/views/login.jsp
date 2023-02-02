@@ -57,7 +57,7 @@
                                         <br>
                                         <div class="col-md-12 colbtn">
                                             <div class="form-group">
-                                                <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=9087b45cc0614d0db706baf5b2bedb62&redirect_uri=http://localhost:8081/auth/kakao/login&response_type=code" class="noneunderline">
+                                                <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=9087b45cc0614d0db706baf5b2bedb62&redirect_uri=http://localhost:8081/auth/kakao/login&response_type=code&prompt=login" class="noneunderline">
                                                     <img class="kakaotalk_login" src="/images/kakao_login_medium_narrow.png" alt="카카오톡으로 로그인" class="kakaotalk_icon" />
                                                 </a>
                                                 <button type="submit" class="btn btn-primary">Login</button>

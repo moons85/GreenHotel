@@ -2,54 +2,18 @@
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> </code>
-<link rel="stylesheet" href="/css/roolet.css">
-<style>
-  .modal {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    display: none;
-
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-
-  .modal.show {
-    display: block;
-  }
-
-  .modal_body {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    width: 600px;
-    height: 600px;
-
-    padding: 40px;
-
-    text-align: center;
-
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
-
-    transform: translateX(-50%) translateY(-50%);
-  }
-</style>
 
 <%@ include file="layout/header.jsp" %>
 <div class="modal">
   <div class="modal_body">
-    <h2>룰렛 돌리기</h2>
-    <div class="rouletter">
-      <div class="rouletter-bg"><div class="rouletter-wacu"></div></div>
-      <div class="rouletter-arrow"></div>
-      <button class="rouletter-btn" onclick="play()">start</button>
-    </div>
+    <h2>보유 쿠폰</h2>
+    <ul>
+      <c:forEach var="coupon" items="${coupons.content}">
+        <c:if test="${coupon.user.id==principal.user.id}">
+          <li>${coupon.coupon}</li>
+        </c:if>
+      </c:forEach>
+    </ul>
   </div>
 </div>
 <section class="hero-wrap hero-wrap-2" style="background-image: url(/images/room-14.png);" data-stellar-background-ratio="0.5">
@@ -129,16 +93,7 @@
                     <span style="font-size: 16pt;">P</span>
                   </div>
                   <div class="text pl-3">
-                    <p><span>Point:</span><fmt:formatNumber value="${principal.user.point}" pattern="#,###"/></p>
-                    <c:choose>
-                      <c:when test="${principal.user.point>=500}">
-                        <p class="mb-4">500포인트 이상 적립시 룰렛 돌리기 이벤트</p>
-                        <button class="btn-open-popup">룰렛 돌리기</button>
-                      </c:when>
-                      <c:otherwise>
-                        <p class="mb-4">500포인트 이상 적립시 룰렛 돌리기 이벤트</p>
-                      </c:otherwise>
-                    </c:choose>
+                    <p><span>Point:</span><span id="showpoint"><fmt:formatNumber value="${user.point}" pattern="#,###"/></span></p>
                   </div>
                 </div>
                 <div class="dbox w-100 d-flex align-items-center">
@@ -157,6 +112,14 @@
                     <p><span>다음 예약 일자:</span>  2023.12.31</p>
                   </div>
                 </div>
+                <div class="dbox w-100 d-flex align-items-center">
+                  <div class="icon d-flex align-items-center justify-content-center">
+                    <span style="font-size: 16pt;">C</span>
+                  </div>
+                  <div class="text pl-3">
+                    <p><span>보유 쿠폰:</span>  <button class="btn-open-popup">확인하기</button></p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -167,5 +130,5 @@
   </div>
   </div>
 </section>
-<script defer src="/js/roolet.js"></script>
+<script defer src="/js/random.js"></script>
 <%@ include file="layout/footer.jsp" %>

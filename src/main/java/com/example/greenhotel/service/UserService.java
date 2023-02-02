@@ -1,8 +1,10 @@
 package com.example.greenhotel.service;
 
 import com.example.greenhotel.dto.MailDto;
+import com.example.greenhotel.model.Event;
 import com.example.greenhotel.model.RoleType;
 import com.example.greenhotel.model.User;
+import com.example.greenhotel.repository.EventRepository;
 import com.example.greenhotel.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class UserService {
     private final UserRepository userRepository;
+
+    private final EventRepository eventRepository;
     private final BCryptPasswordEncoder encoder;
 
     private final AuthenticationManager authenticationManager;
@@ -32,9 +36,21 @@ public class UserService {
         userRepository.save(user);
     }
 
+    @Transactional
+    public void 쿠폰발급(Event event,User user){
+        event.setUser(user);
+        eventRepository.save(event);
+    }
+
     @Transactional(readOnly = true)
     public User 회원찾기(String username) {
         return userRepository.findByUsername(username)
+                .orElse(new User());
+    }
+
+    @Transactional(readOnly = true)
+    public User 회원찾기2(int id) {
+        return userRepository.findById(id)
                 .orElse(new User());
     }
 
@@ -49,9 +65,15 @@ public class UserService {
         percitence.setEmail(raw.getEmail());
         percitence.setName(raw.getName());
         percitence.setPhonenumber(raw.getPhonenumber());
-
-
     }
+//    @Transactional
+//    public void 포인트적립(User user,User raw){
+//        User percitences = userRepository.findById(user.getId()).orElseThrow(()->{
+//            return new IllegalArgumentException("회원 찾기 실패");
+//        });
+//        percitences.setPoint(raw.getPoint());
+//    }
+
     @Transactional
     public String find_id(String email, String phonenumber) {
 

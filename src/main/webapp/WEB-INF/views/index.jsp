@@ -2,6 +2,24 @@
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="layout/header.jsp" %>
+<div class="modal">
+    <div class="modal_body">
+        <h2>랜덤 뽑기</h2>
+        <div class="select_wrap">
+            <input type="button" class="select_btn" value="1">
+            <input type="button" class="select_btn" value="2">
+            <input type="button" class="select_btn" value="3">
+            <input type="button" class="select_btn" value="4">
+            <input type="button" class="select_btn" value="5">
+            <input type="button" class="select_btn" value="6">
+            <input type="button" class="select_btn" value="7">
+            <input type="button" class="select_btn" value="8">
+            <input type="button" class="select_btn" value="9">
+        </div>
+        <input type="hidden" value="${principal.user.point}" id="point">
+        <input type="hidden" value="${principal.user.id}" id="uId">
+    </div>
+</div>
 <div class="hero-wrap js-fullheight" style="background-image: url(/images/room-8.png);" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
@@ -439,7 +457,15 @@
                             <div><a href="#">Admin</a></div>
                             <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
                         </div>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+<%--                        이용내역이 있으면 기회부여--%>
+                        <c:choose>
+                            <c:when test="${empty principal}">
+                                <p>로그인 후 이용해주세요!</p>
+                            </c:when>
+                            <c:otherwise>
+                                <button class="btn-open-popup">Modal 띄우기</button>
+                            </c:otherwise>
+                        </c:choose>
                     </div>
                 </div>
             </div>
@@ -476,4 +502,5 @@
         </div>
     </div>
 </section>
+<script defer src="/js/random.js"></script>
 <%@ include file="layout/footer.jsp" %>
