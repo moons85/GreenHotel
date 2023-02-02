@@ -1,6 +1,6 @@
 let index = {
     init: function() {
-        $(".btn-primary").on("click", () => {
+        $("#btnsignup").on("click", () => {
             this.test();
         });
     },
@@ -26,7 +26,7 @@ let index = {
             return false;
         }
         else if(username===null || username.trim()===''){
-            alert("아이디를 입력해주세요");
+            alert("이름을 입력해주세요");
             return false;
         }
         else if(email===null || email.trim()===''){

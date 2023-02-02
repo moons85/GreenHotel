@@ -1,10 +1,5 @@
 package com.example.greenhotel.service;
 
-import com.example.greenhotel.dto.MailDto;
-import com.example.greenhotel.model.RoleType;
-import com.example.greenhotel.model.User;
-import com.example.greenhotel.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
@@ -12,6 +7,14 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.example.greenhotel.dto.MailDto;
+import com.example.greenhotel.model.RoleType;
+import com.example.greenhotel.model.User;
+import com.example.greenhotel.repository.IdRepository;
+import com.example.greenhotel.repository.UserRepository;
+
+import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Service
@@ -21,6 +24,9 @@ public class UserService {
 
     private final AuthenticationManager authenticationManager;
     private final JavaMailSenderImpl mailSender;
+
+    @Autowired
+    private IdRepository idRepository;
 
     @Transactional
     public void 회원가입(User user) {
@@ -131,5 +137,10 @@ public class UserService {
         mailSender.send(message);
     }
 
-
+	@Transactional(readOnly = true)
+	public int idCheck(String username) {
+		int cnt = idRepository.countByUsername(username);
+		System.out.println(username);
+		return cnt;
+	}
 }

@@ -35,13 +35,20 @@
                                     <div class="col-md-10">
                                         <div class="form-group">
                                             <label class="label" for="id">Id</label>
-                                            <input type="text" class="form-control" name="id" id="id" placeholder="아이디를 입력해주세요.">
+                                            <input type="text" class="form-control" name="id" id="id" placeholder="아이디를 입력해주세요." required>
                                         </div>
                                     </div>
+                                                            <div class="col-md-2">
+                        <input type="button" id="idcheckbtn" class="btn btn-primary idcheckbtn" value="중복 확인" name="subject">
+                      </div>
+                      <div class="col-md-12">
+                     <span class="id_input_re_1">사용 가능한 아이디입니다.</span>
+				<span class="id_input_re_2">아이디가 이미 존재합니다.</span></div>
+                      	
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="label" for="password">Password</label>
-                                            <input type="password" class="form-control" name="password" id="password" placeholder="비밀번호를 입력해주세요.">
+                                            <input type="password" class="form-control" name="password" id="password" placeholder="비밀번호를 입력해주세요." required>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -53,19 +60,19 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="label" for="name">Name</label>
-                                            <input type="text" class="form-control" name="name" id="name" placeholder="이름을 입력해주세요.">
+                                            <input type="text" class="form-control" name="name" id="name" placeholder="이름을 입력해주세요." required>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="label" for="email">Email Address</label>
-                                            <input type="email" class="form-control" name="email" id="email" placeholder="이메일을 입력해주세요.">
+                                            <input type="email" class="form-control" name="email" id="email" placeholder="이메일을 입력해주세요." required>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="label" for="phone">Phone</label>
-                                            <input type="text" class="form-control" name="phone" id="phone" placeholder="'-'제외 휴대폰 번호를 입력해주세요.">
+                                            <input type="text" class="form-control" name="phone" id="phone" placeholder="'-'제외 휴대폰 번호를 입력해주세요." required>
                                         </div>
                                     </div>
                                     <div class="col-md-12 colbtn">
@@ -82,7 +89,7 @@
                                     <div class="col-md-12 colbtn">
                                         <div class="form-group">
                                             <input type="submit" value="Login" class="btn btn-white" id="btnkakao">
-                                            <input type="submit" value="Sign up" class="btn btn-primary">
+                                            <input type="submit" value="Sign up" class="btn btn-primary" id="btnsignup">
                                             <div class="submitting"></div>
                                         </div>
                                     </div>
@@ -136,5 +143,8 @@
         </div>
     </div>
 </section>
+
+<script defer src="/js/idcheck.js"></script>
 <script defer src="/js/signup.js"></script>
+
 <%@ include file="layout/footer.jsp" %>
