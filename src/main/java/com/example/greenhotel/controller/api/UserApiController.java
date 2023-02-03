@@ -104,6 +104,16 @@ public class UserApiController {
         }
     }
 
+    @ResponseBody
+    @PostMapping("/auth/idcheck")
+    public ResponseDto<Integer> idcheck(@RequestBody User user) {
+        System.out.println("idcheck실행");
+        int count = 0;
+        count = userService.idCheck(user.getUsername());
+        System.out.println(count);
+        return new ResponseDto<Integer>(HttpStatus.OK.value(),count);
+    }
+
 
 
 }

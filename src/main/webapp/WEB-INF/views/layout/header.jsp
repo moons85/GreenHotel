@@ -62,16 +62,16 @@
                 <c:choose>
                     <c:when test="${empty principal}">
                         <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
+                        <li class="nav-item"><a href="/auth/about" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="/auth/service" class="nav-link">Services</a></li>
                         <li class="nav-item"><a href="/auth/room" class="nav-link">Rooms</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Reviews</a></li>
                         <li class="nav-item"><a href="/auth/login" class="nav-link">login</a></li>
                     </c:when>
                     <c:otherwise>
                         <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
+                        <li class="nav-item"><a href="/auth/about" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="/auth/service" class="nav-link">Services</a></li>
                         <li class="nav-item"><a href="/auth/room" class="nav-link">Rooms</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Reviews</a></li>
                         <li class="nav-item"><a href="/mypage/${principal.user.id}" class="nav-link">mypage</a></li>

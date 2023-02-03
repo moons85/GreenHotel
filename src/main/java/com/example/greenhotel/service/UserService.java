@@ -7,7 +7,6 @@ import com.example.greenhotel.model.User;
 import com.example.greenhotel.repository.EventRepository;
 import com.example.greenhotel.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -25,6 +24,7 @@ public class UserService {
 
     private final AuthenticationManager authenticationManager;
     private final JavaMailSenderImpl mailSender;
+
 
     @Transactional
     public void 회원가입(User user) {
@@ -152,6 +152,13 @@ public class UserService {
         message.setReplyTo("hyn6305@naver.com");
         System.out.println("message"+message);
         mailSender.send(message);
+    }
+
+    @Transactional(readOnly = true)
+    public int idCheck(String username) {
+        int cnt = userRepository.countByUsername(username);
+        System.out.println(username);
+        return cnt;
     }
 
 

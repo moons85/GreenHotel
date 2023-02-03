@@ -45,6 +45,12 @@ public class UserController {
         return "/signup";
     }
 
+    @GetMapping("/auth/service")
+    public String service(){ return "/service";}
+
+    @GetMapping("/auth/about")
+    public String about() {return "/about";}
+
     @GetMapping("/mypage/{id}")
     public String mypage(@PathVariable int id, Model model,@PageableDefault(size = 8, sort = "id", direction = Sort.Direction.DESC) Pageable pageable){
 //        User user = userService.회원찾기2(id);
