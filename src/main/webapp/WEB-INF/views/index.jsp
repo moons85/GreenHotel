@@ -4,7 +4,7 @@
 <%@ include file="layout/header.jsp" %>
 <div class="modal">
     <div class="modal_body">
-        <h2>랜덤 뽑기</h2>
+        <h2 class="modal_title">랜덤 뽑기</h2>
         <div class="select_wrap">
             <input type="button" class="select_btn" value="1">
             <input type="button" class="select_btn" value="2">
@@ -16,7 +16,7 @@
             <input type="button" class="select_btn" value="8">
             <input type="button" class="select_btn" value="9">
         </div>
-        <input type="hidden" value="${principal.user.point}" id="point">
+<%--        <input type="hidden" value="${principal.user.point}" id="point">--%>
         <input type="hidden" value="${principal.user.id}" id="uId">
     </div>
 </div>
@@ -454,19 +454,19 @@
                     <a href="blog-single.html" class="block-20 rounded" style="background-image: url('images/image_1.jpg');">
                     </a>
                     <div class="text p-4 text-center">
-                        <h3 class="heading"><a href="#">Work Hard, Party Hard in a Luxury Chalet in the Alps</a></h3>
-                        <div class="meta mb-2">
-                            <div><a href="#">January 30, 2020</a></div>
-                            <div><a href="#">Admin</a></div>
-                            <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
-                        </div>
+                        <h3 class="heading"><a href="#">Private Hotel 오픈 기념 쿠폰을 뽑아 보세요!</a></h3>
+<%--                        <div class="meta mb-2">--%>
+<%--                            <div><a href="#">January 30, 2020</a></div>--%>
+<%--                            <div><a href="#">Admin</a></div>--%>
+<%--                            <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>--%>
+<%--                        </div>--%>
                         <%--                        이용내역이 있으면 기회부여--%>
                         <c:choose>
                             <c:when test="${empty principal}">
                                 <p>로그인 후 이용해주세요!</p>
                             </c:when>
                             <c:otherwise>
-                                <button class="btn-open-popup">Modal 띄우기</button>
+                                <button class="btn-open-popup">Start</button>
                             </c:otherwise>
                         </c:choose>
 

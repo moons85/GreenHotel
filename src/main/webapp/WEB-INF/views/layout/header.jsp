@@ -69,6 +69,7 @@
                         <li class="nav-item"><a href="/auth/login" class="nav-link">login</a></li>
                     </c:when>
                     <c:otherwise>
+                        <li class="nav-item active"><a href="/" class="nav-link">${principal.user.roleType}</a></li>
                         <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
                         <li class="nav-item"><a href="/auth/about" class="nav-link">About</a></li>
                         <li class="nav-item"><a href="/auth/service" class="nav-link">Services</a></li>

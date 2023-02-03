@@ -117,7 +117,7 @@
                     <span style="font-size: 16pt;">C</span>
                   </div>
                   <div class="text pl-3">
-                    <p><span>보유 쿠폰:</span>  <button class="btn-open-popup">확인하기</button></p>
+                    <p><span>보유 쿠폰:</span>  <button class="btn-open-popup btn btn-primary">확인하기</button></p>
                   </div>
                 </div>
               </div>

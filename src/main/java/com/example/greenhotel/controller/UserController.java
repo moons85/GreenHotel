@@ -72,4 +72,7 @@ public class UserController {
     @GetMapping("/auth/newPassword")
     public String newPassword(){return "/newPassword";}
 
+    @GetMapping("/admin")
+    public String admin(){return "/admin";}
+
 }

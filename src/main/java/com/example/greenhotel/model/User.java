@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
