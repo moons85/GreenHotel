@@ -1,8 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> </code>
 
 <%@ include file="layout/header.jsp" %>
+<div class="modal">
+  <div class="modal_body">
+    <h2>보유 쿠폰</h2>
+    <ul>
+      <c:forEach var="coupon" items="${coupons.content}">
+        <c:if test="${coupon.user.id==principal.user.id}">
+          <li>${coupon.coupon}</li>
+        </c:if>
+      </c:forEach>
+    </ul>
+  </div>
+</div>
 <section class="hero-wrap hero-wrap-2" style="background-image: url(/images/room-14.png);" data-stellar-background-ratio="0.5">
   <div class="overlay"></div>
   <div class="container">
@@ -80,7 +93,7 @@
                     <span style="font-size: 16pt;">P</span>
                   </div>
                   <div class="text pl-3">
-                    <p><span>Point:</span>${principal.user.point }</p>
+                    <p><span>Point:</span><span id="showpoint"><fmt:formatNumber value="${user.point}" pattern="#,###"/></span></p>
                   </div>
                 </div>
                 <div class="dbox w-100 d-flex align-items-center">
@@ -99,6 +112,14 @@
                     <p><span>다음 예약 일자:</span>  2023.12.31</p>
                   </div>
                 </div>
+                <div class="dbox w-100 d-flex align-items-center">
+                  <div class="icon d-flex align-items-center justify-content-center">
+                    <span style="font-size: 16pt;">C</span>
+                  </div>
+                  <div class="text pl-3">
+                    <p><span>보유 쿠폰:</span>  <button class="btn-open-popup btn btn-primary">확인하기</button></p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -109,4 +130,5 @@
   </div>
   </div>
 </section>
+<script defer src="/js/random.js"></script>
 <%@ include file="layout/footer.jsp" %>

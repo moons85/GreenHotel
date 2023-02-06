@@ -38,8 +38,9 @@ public class SecurityCoinfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-                .authorizeRequests()
+        http.csrf().disable();
+                http.authorizeRequests()
+                .antMatchers("/admin/**").hasRole("MANAGER")
                 .antMatchers( "/","/auth/**", "/css/**", "/js/**", "/images/**", "/upload/**")
                 .permitAll()
                 .anyRequest()

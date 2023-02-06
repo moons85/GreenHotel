@@ -1,6 +1,16 @@
 package com.example.greenhotel.service;
 
+<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Autowired;
+=======
+import com.example.greenhotel.dto.MailDto;
+import com.example.greenhotel.model.Event;
+import com.example.greenhotel.model.RoleType;
+import com.example.greenhotel.model.User;
+import com.example.greenhotel.repository.EventRepository;
+import com.example.greenhotel.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
+>>>>>>> branch 'master' of https://github.com/moons85/GreenHotel.git
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -20,26 +30,44 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class UserService {
     private final UserRepository userRepository;
+
+    private final EventRepository eventRepository;
     private final BCryptPasswordEncoder encoder;
 
     private final AuthenticationManager authenticationManager;
     private final JavaMailSenderImpl mailSender;
 
+<<<<<<< HEAD
     @Autowired
     private IdRepository idRepository;
+=======
+>>>>>>> branch 'master' of https://github.com/moons85/GreenHotel.git
 
     @Transactional
     public void 회원가입(User user) {
         String rawPassword = user.getPassword();
         String encPassword = encoder.encode(rawPassword);
         user.setPassword(encPassword);
+        user.setPoint(1000);
         user.setRoleType(RoleType.USER);
         userRepository.save(user);
+    }
+
+    @Transactional
+    public void 쿠폰발급(Event event,User user){
+        event.setUser(user);
+        eventRepository.save(event);
     }
 
     @Transactional(readOnly = true)
     public User 회원찾기(String username) {
         return userRepository.findByUsername(username)
+                .orElse(new User());
+    }
+
+    @Transactional(readOnly = true)
+    public User 회원찾기2(int id) {
+        return userRepository.findById(id)
                 .orElse(new User());
     }
 
@@ -54,9 +82,15 @@ public class UserService {
         percitence.setEmail(raw.getEmail());
         percitence.setName(raw.getName());
         percitence.setPhonenumber(raw.getPhonenumber());
-
-
     }
+//    @Transactional
+//    public void 포인트적립(User user,User raw){
+//        User percitences = userRepository.findById(user.getId()).orElseThrow(()->{
+//            return new IllegalArgumentException("회원 찾기 실패");
+//        });
+//        percitences.setPoint(raw.getPoint());
+//    }
+
     @Transactional
     public String find_id(String email, String phonenumber) {
 
@@ -137,10 +171,21 @@ public class UserService {
         mailSender.send(message);
     }
 
+<<<<<<< HEAD
 	@Transactional(readOnly = true)
 	public int idCheck(String username) {
 		int cnt = idRepository.countByUsername(username);
 		System.out.println(username);
 		return cnt;
 	}
+=======
+    @Transactional(readOnly = true)
+    public int idCheck(String username) {
+        int cnt = userRepository.countByUsername(username);
+        System.out.println(username);
+        return cnt;
+    }
+
+
+>>>>>>> branch 'master' of https://github.com/moons85/GreenHotel.git
 }

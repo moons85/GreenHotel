@@ -26,6 +26,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Query(value = "update User set password=?2 where username = ?1",nativeQuery = true)
     void updatePassword(@Param("username") String username, @Param("password") String password);
 
+    int countByUsername(String username);
+
 }
 
 

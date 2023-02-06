@@ -20,7 +20,7 @@ public class PrincipalDetail implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Collection<GrantedAuthority> collection = new ArrayList<>();
         collection.add(()->{return "ROLE_"+user.getRoleType();});
-        return null;
+        return collection;
     }
 
     @Override
