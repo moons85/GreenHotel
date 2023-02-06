@@ -8,9 +8,9 @@
   <div class="modal_body">
     <h2 class="h2_title h2_title2 modaltitle2">보유 쿠폰</h2><br>
       <c:forEach var="coupon" items="${coupons.content}">
-        <c:if test="${coupon.user.id==principal.user.id}">
-<%--           <li>${coupon.coupon}</li>--%>    
-<div class="coupondiv text-left">
+        <c:choose>
+							<c:when test="${coupon.user.id==principal.user.id}">
+								<div class="coupondiv text-left">
 <span class="couponsub">Private Coupon</span>
 <hr>
 <ul>
@@ -20,8 +20,14 @@
     </ul>
 </div>   
 <a href="/#eventsection" id="couponhref" class="coupon_a text-center">다른 쿠폰 더 뽑으러 가기</a> 
-</c:if>
-
+							</c:when>
+							<c:otherwise>
+							<br>
+								이용 가능한 쿠폰이 없습니다.
+								<br><br><br>
+							<a href="/#eventsection" class="btn-primary btn" >지금 바로 뽑으러 가기</a>
+							</c:otherwise>
+						</c:choose>
       </c:forEach>
 
   </div>
