@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="layout/header.jsp"%>
+<script defer src="/js/popup.js"></script>
+<%@ include file="popup.jsp"%>
+
 <div class="modal">
 	<div class="modal_body">
 		<p class="modal_title">랜덤 쿠폰 뽑기</p>
@@ -21,6 +24,10 @@
 		<input type="hidden" value="${principal.user.id}" id="uId">
 	</div>
 </div>
+
+
+
+
 <div class="hero-wrap js-fullheight"
 	style="background-image: url(/images/room-8.png);"
 	data-stellar-background-ratio="0.5">

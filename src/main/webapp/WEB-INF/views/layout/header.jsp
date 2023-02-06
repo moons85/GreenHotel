@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="/css/flaticon.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/stylemore.css">
+        <link rel="stylesheet" href="/css/popup.css">
+    
 </head>
 <body>
 <div class="wrap">
