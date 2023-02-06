@@ -1,16 +1,6 @@
 package com.example.greenhotel.service;
 
-<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Autowired;
-=======
-import com.example.greenhotel.dto.MailDto;
-import com.example.greenhotel.model.Event;
-import com.example.greenhotel.model.RoleType;
-import com.example.greenhotel.model.User;
-import com.example.greenhotel.repository.EventRepository;
-import com.example.greenhotel.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
->>>>>>> branch 'master' of https://github.com/moons85/GreenHotel.git
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,12 +9,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.greenhotel.dto.MailDto;
+import com.example.greenhotel.model.Event;
 import com.example.greenhotel.model.RoleType;
 import com.example.greenhotel.model.User;
+import com.example.greenhotel.repository.EventRepository;
 import com.example.greenhotel.repository.IdRepository;
 import com.example.greenhotel.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
+
 
 @RequiredArgsConstructor
 @Service
@@ -37,11 +30,9 @@ public class UserService {
     private final AuthenticationManager authenticationManager;
     private final JavaMailSenderImpl mailSender;
 
-<<<<<<< HEAD
+
     @Autowired
     private IdRepository idRepository;
-=======
->>>>>>> branch 'master' of https://github.com/moons85/GreenHotel.git
 
     @Transactional
     public void 회원가입(User user) {
@@ -171,14 +162,7 @@ public class UserService {
         mailSender.send(message);
     }
 
-<<<<<<< HEAD
-	@Transactional(readOnly = true)
-	public int idCheck(String username) {
-		int cnt = idRepository.countByUsername(username);
-		System.out.println(username);
-		return cnt;
-	}
-=======
+
     @Transactional(readOnly = true)
     public int idCheck(String username) {
         int cnt = userRepository.countByUsername(username);
@@ -187,5 +171,4 @@ public class UserService {
     }
 
 
->>>>>>> branch 'master' of https://github.com/moons85/GreenHotel.git
 }
