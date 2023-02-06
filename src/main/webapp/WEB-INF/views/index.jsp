@@ -4,7 +4,8 @@
 <%@ include file="layout/header.jsp" %>
 <div class="modal">
     <div class="modal_body">
-        <h2 class="modal_title">랜덤 뽑기</h2>
+        <p class="modal_title">랜덤 쿠폰 뽑기</p>
+                <h2 class="h2_title2 h2_title">Test Your Luck!</h2>
         <div class="select_wrap">
             <input type="button" class="select_btn" value="1">
             <input type="button" class="select_btn" value="2">
@@ -440,7 +441,7 @@
     </div>
 </section>
 
-<section class="ftco-section bg-light">
+<section id="eventsection" class="ftco-section bg-light">
     <div class="container">
         <div class="row justify-content-center pb-5 mb-3">
             <div class="col-md-7 heading-section text-center ftco-animate">
@@ -454,19 +455,23 @@
                     <a href="blog-single.html" class="block-20 rounded" style="background-image: url('images/image_1.jpg');">
                     </a>
                     <div class="text p-4 text-center">
-                        <h3 class="heading"><a href="#">Private Hotel 오픈 기념 쿠폰을 뽑아 보세요!</a></h3>
+                        <h3 class="heading"><a href="#">Private Hotel 오픈 기념 쿠폰 뽑기</a></h3>
 <%--                        <div class="meta mb-2">--%>
 <%--                            <div><a href="#">January 30, 2020</a></div>--%>
 <%--                            <div><a href="#">Admin</a></div>--%>
 <%--                            <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>--%>
 <%--                        </div>--%>
-                        <%--                        이용내역이 있으면 기회부여--%>
+                        <%--                        이용내역이 있으면 기회부여--%>                        
                         <c:choose>
                             <c:when test="${empty principal}">
-                                <p>로그인 후 이용해주세요!</p>
-                            </c:when>
+                            <br>
+                                <p>로그인이 필요합니다.</p>
+<a href="/auth/login" class="nav-link btn btn-primary">Login 하러 가기</a>                            </c:when>
                             <c:otherwise>
-                                <button class="btn-open-popup">Start</button>
+                                <button class="btn-open-popup btn-primary btn">지금 바로 뽑아보기</button>
+                                                          <p class="text-descrandom">*1인당 참여제한이 1회 있습니다.
+                                                          <br>*당첨 쿠폰은 3개월 이내로 사용이 가능합니다.</p>
+                       
                             </c:otherwise>
                         </c:choose>
 

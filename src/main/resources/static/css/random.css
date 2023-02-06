@@ -16,18 +16,20 @@
 }
 
 .modal_body {
+	    position: absolute;
+	    position: relative;
     position: absolute;
     top: 50%;
     left: 50%;
 
-    width: 600px;
+    width: 550px;
     height: 600px;
 
     /*padding: 40px;*/
 
     text-align: center;
 
-    background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%);
+    background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
 
@@ -35,10 +37,16 @@
 }
 
 .modal_title{
-    margin: 20px auto;
-    font-size: 2rem;
-    font-family: Arial;
+    font-size: 1rem;
+      font-family: 'Nanum Gothic', sans-serif;
+      color:#b49178;
+      margin-top:20px;    
 }
+
+.modaltitle2{
+	margin-top:20px;
+}
+
 .select_wrap{
     margin: 50px auto;
     padding: 0;
@@ -47,7 +55,7 @@
     display: flex;
     flex-wrap: wrap;
 }
-.btn-open-popup{
+/* .btn-open-popup{
     width: 100px;
     height: 60px;
     color: #fff;
@@ -63,7 +71,7 @@
 .btn-open-popup:hover{
     background: rgb(0,3,255);
     background: linear-gradient(0deg, rgba(0,3,255,1) 0%, rgba(2,126,251,1) 100%);
-}
+} */
 .select_btn{
     width: 99px;
     font-size: 1.5rem;
@@ -81,8 +89,8 @@
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
-    background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
-    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+    background-image: linear-gradient(to right, #ccc,#fff);
+    box-shadow: 0 4px 15px 0 #ddd;
 }
 
 .select_btn:hover{
@@ -91,8 +99,48 @@
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
+        color: #333;
 }
 
 .select_btn:focus{
     outline: none;
+}
+
+.hovercursor{
+	cursor:pointer;
+}
+
+.coupondiv{
+	    line-height: 1;
+	margin:30px auto;
+	width:90%;
+	border-radius:10px;
+    box-shadow: 0 4px 10px 0 #ddd;
+    padding:15px 30px 15px 30px;
+}
+
+.coupondiv>ul{
+		    line-height: 1.8;
+	    padding-inline-start: 0px;
+}
+
+.coupontitle{
+	    font-size: 1.4rem;
+      font-family: 'Nanum Gothic', sans-serif;
+      font-weight:700;
+      color:#b49178;
+}
+
+.couponsub{
+	padding-bottom:-10px;
+}
+
+.coupondiv:hover{
+	    background:#fbf0e8;
+}
+
+.coupon_a{
+	position:absolute;
+	bottom: 30px;
+	left:205px;
 }

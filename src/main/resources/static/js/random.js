@@ -22,8 +22,8 @@ modal.addEventListener('click', (event) => {
 
 const selectbtn = document.querySelectorAll(".select_btn");
 const id = document.querySelector("#uId").value;
-let point = document.querySelector("#point").value;
-point = parseInt(point)
+/*let point = document.querySelector("#point").value;
+point = parseInt(point)*/
 let coupon;
 
 selectbtn.forEach((target)=>{
@@ -36,7 +36,7 @@ selectbtn.forEach((target)=>{
 
 function play(e){
     let n = Math.floor(Math.random() * 25) + 1;
-    console.log(e,n,point)
+/*    console.log(e,n,point)*/
     if(e==n){
         coupon = "호텔 3박 4일 숙박권"
         alert("1등! 호텔 3박 4일 숙박권!")
@@ -81,6 +81,8 @@ function save(coupon){
         alert("쿠폰 발급 에러");
     });
 }
+
+
 
 // function pointsave(point){
 //     let data = {

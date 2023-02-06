@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="layout/header.jsp"%>
 
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/room-11.png');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('/images/room-11.png');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -21,7 +21,7 @@
 
           <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
             <div class="d-block services-wrap text-center">
-              <div class="img" style="background-image: url(images/services-2.jpg);"></div>
+              <div class="img" style="background-image: url(/images/services-2.jpg);"></div>
               <div class="media-body py-4 px-3">
                 <h3 class="서비스페이지연결">Services</h3>
                 <p>무상으로 제공되는 기본 서비스부터 Private Hotel에서만 제공하는 특별한 서비스들까지, 지금 바로 만나보세요.</p>
@@ -31,7 +31,7 @@
           </div>
           <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
             <div class="d-block services-wrap text-center">
-              <div class="img" style="background-image: url(images/services-3.jpg);"></div>
+              <div class="img" style="background-image: url(/images/services-3.jpg);"></div>
               <div class="media-body py-4 px-3">
                 <h3 class="heading">Luxury Rooms</h3>
                 <p>일상에서 벗어나 휴식을 찾는 여러분에게 편안하고 고급진 공간을 선물합니다. 새롭고도 안락한 방에서 여러분만의 시간을 가져보세요.</p>
@@ -41,7 +41,7 @@
           </div>
           <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
             <div class="d-block services-wrap text-center">
-              <div class="img" style="background-image: url(images/services-1.jpg);"></div>
+              <div class="img" style="background-image: url(/images/services-1.jpg);"></div>
               <div class="media-body py-4 px-3">
                 <h3 class="heading">Reviews</h3>
                 <p>직접 Private Hotel을 경험해본 방문자들이 남긴 리뷰를 살펴보세요. 거짓없는 Private Hotel의 이야기를 들려드립니다.</p>
@@ -66,7 +66,7 @@
             <div class="carousel-testimony owl-carousel">
 							<div class="item">
                 <div class="testimony-wrap d-flex">
-                  <div class="user-img" style="background-image: url(images/person_1.jpg)">
+                  <div class="user-img" style="background-image: url(/images/person_1.jpg)">
                   </div>
                   <div class="text pl-4">
                   	<span class="quote d-flex align-items-center justify-content-center">
@@ -82,7 +82,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap d-flex">
-                  <div class="user-img" style="background-image: url(images/person_2.jpg)">
+                  <div class="user-img" style="background-image: url(/images/person_2.jpg)">
                   </div>
                   <div class="text pl-4">
                     <span class="quote d-flex align-items-center justify-content-center">
@@ -98,7 +98,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap d-flex">
-                  <div class="user-img" style="background-image: url(images/person_3.jpg)">
+                  <div class="user-img" style="background-image: url(/images/person_3.jpg)">
                   </div>
                   <div class="text pl-4">
                   	<span class="quote d-flex align-items-center justify-content-center">
@@ -114,7 +114,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap d-flex">
-                  <div class="user-img" style="background-image: url(images/person_4.jpg)">
+                  <div class="user-img" style="background-image: url(/images/person_4.jpg)">
                   </div>
                   <div class="text pl-4">
                   	<span class="quote d-flex align-items-center justify-content-center">
@@ -130,7 +130,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap d-flex">
-                  <div class="user-img" style="background-image: url(images/person_5.jpg)">
+                  <div class="user-img" style="background-image: url(/images/person_5.jpg)">
                   </div>
                   <div class="text pl-4">
                   	<span class="quote d-flex align-items-center justify-content-center">

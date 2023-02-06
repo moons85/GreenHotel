@@ -6,14 +6,28 @@
 <%@ include file="layout/header.jsp" %>
 <div class="modal">
   <div class="modal_body">
-    <h2>보유 쿠폰</h2>
-    <ul>
+    <h2 class="h2_title h2_title2 modaltitle2">보유 쿠폰</h2><br>
       <c:forEach var="coupon" items="${coupons.content}">
         <c:if test="${coupon.user.id==principal.user.id}">
-          <li>${coupon.coupon}</li>
-        </c:if>
-      </c:forEach>
+<%--           <li>${coupon.coupon}</li>--%>    
+<div class="coupondiv text-left">
+<span class="couponsub">Private Coupon</span>
+<hr>
+<ul>
+<li class="coupontitle">쿠폰 이름 3000원 뭐 이용권</li>
+<li>발급일: 2022.12.31</li>
+<li>기한: 2022.12.13</li>
     </ul>
+</div>   
+<a href="/index#eventsection" id="couponhref" class="coupon_a text-center">다른 쿠폰 더 뽑으러 가기</a> 
+<script>
+var anchor = document.getElementById("couponhref");
+
+</script>
+</c:if>
+
+      </c:forEach>
+
   </div>
 </div>
 <section class="hero-wrap hero-wrap-2" style="background-image: url(/images/room-14.png);" data-stellar-background-ratio="0.5">
@@ -117,7 +131,7 @@
                     <span style="font-size: 16pt;">C</span>
                   </div>
                   <div class="text pl-3">
-                    <p><span>보유 쿠폰:</span>  <button class="btn-open-popup btn btn-primary">확인하기</button></p>
+                    <p><a class="btn-open-popup hovercursor">보유 쿠폰 확인하기</button></a>
                   </div>
                 </div>
               </div>
