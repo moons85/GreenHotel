@@ -19,11 +19,7 @@
 <li>기한: 2022.12.13</li>
     </ul>
 </div>   
-<a href="/index#eventsection" id="couponhref" class="coupon_a text-center">다른 쿠폰 더 뽑으러 가기</a> 
-<script>
-var anchor = document.getElementById("couponhref");
-
-</script>
+<a href="/#eventsection" id="couponhref" class="coupon_a text-center">다른 쿠폰 더 뽑으러 가기</a> 
 </c:if>
 
       </c:forEach>
