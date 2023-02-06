@@ -42,7 +42,7 @@
                                                 <input type="password" class="form-control" name="password" id="password" placeholder="비밀번호를 입력해주세요.">
                                             </div>
                                         </div>
-                                        <div class="col-md-12 colbtn">
+                                        <div class="col-md-12 colbtn text-right">
                                             <div id="form-message-successt" class="mb-4">
                                                 <br>
                                                 계정 정보를 잊어버리셨나요?
