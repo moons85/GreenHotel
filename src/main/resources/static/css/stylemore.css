@@ -254,6 +254,11 @@ select {
   display : none;
 }
 
+.text-descrandom{
+  font-size:small;
+  margin-top: 20px;
+}
+
 
 .text-descrandom{
 	font-size:small;

@@ -36,7 +36,11 @@ selectbtn.forEach((target)=>{
 
 function play(e){
     let n = Math.floor(Math.random() * 25) + 1;
+<<<<<<< HEAD
 /*    console.log(e,n,point)*/
+=======
+    /*    console.log(e,n,point)*/
+>>>>>>> branch 'master' of https://github.com/moons85/GreenHotel.git
     if(e==n){
         coupon = "호텔 3박 4일 숙박권"
         alert("1등! 호텔 3박 4일 숙박권!")

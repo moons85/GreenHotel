@@ -38,7 +38,7 @@ public class Room {
     private String bed;
 
     @Column
-    private int price;
+    private String price;
 
     @Column
     private String roommainimg;
