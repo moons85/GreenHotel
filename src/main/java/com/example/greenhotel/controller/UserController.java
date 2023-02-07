@@ -3,6 +3,7 @@ package com.example.greenhotel.controller;
 import com.example.greenhotel.model.Event;
 import com.example.greenhotel.model.User;
 import com.example.greenhotel.repository.UserRepository;
+import com.example.greenhotel.service.AdminService;
 import com.example.greenhotel.service.EventService;
 import com.example.greenhotel.service.RoomService;
 import com.example.greenhotel.service.UserService;
@@ -16,7 +17,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -27,6 +30,9 @@ public class UserController {
 
     @Autowired
     private EventService eventService;
+
+    @Autowired
+    private AdminService adminService;
 
     @Autowired
     private RoomService roomService;
@@ -79,6 +85,19 @@ public class UserController {
     @GetMapping("/admin")
     public String admin(Model model,@PageableDefault Pageable pageable) {
         model.addAttribute("rooms", roomService.방목록(pageable));
+
+        List<String> price = new ArrayList<>();
+        for(int i=1; i<13; i++) {
+            price.add(adminService.매출(i));
+            if(price.get(i-1)==null) {
+                price.set((i-1), "0");
+                System.out.println("asdfasdfsadf"+price.get(0));
+            }
+
+
+        }
+        model.addAttribute("price", price);
+
         return "/admin";
     }
 

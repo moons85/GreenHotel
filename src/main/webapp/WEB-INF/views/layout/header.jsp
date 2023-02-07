@@ -2,6 +2,7 @@
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <sec:authorize access="isAuthenticated()">
     <sec:authentication property="principal" var="principal"/>
 </sec:authorize>
@@ -27,6 +28,7 @@
     <link rel="stylesheet" href="/css/jquery.timepicker.css">
 
     <link rel="stylesheet" href="/css/flaticon.css">
+    <link rel="stylesheet" href="/css/popup.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/stylemore.css">
 </head>

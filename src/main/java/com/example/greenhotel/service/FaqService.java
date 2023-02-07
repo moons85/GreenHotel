@@ -33,10 +33,20 @@ public class FaqService {
         return faqRepository.findAll(pageable);
     }
 
-//    public List<Faq> 글검색(String s_category, String s_data) {
-//        List<Faq> faq =  faqRepository.findfaq(s_category,s_data);
-//        return faq;
-//    }
+    public Page<Faq> 글검색(String title, String content, Pageable pageable) {
+
+        if(title.equals("title")) {
+            return faqRepository.findByTitleContaining(content,pageable);
+        }
+        else if(title.equals("category")) {
+            return faqRepository.findByCategoryContaining(content,pageable);
+        }
+        else {
+            return faqRepository.findByContentContaining(content,pageable);
+        }
+
+
+    }
 
     public Faq 상세보기(int id){
         return faqRepository.findById(id).orElseThrow(()->{

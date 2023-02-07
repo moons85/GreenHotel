@@ -79,7 +79,55 @@ function regist(){
     }
 
 }
-function updateRoom(roomid){
+function updateRoom(roomid,inputid){
+    console.log($("#roomname"+inputid).val());
+    var roomName = $("#roomname"+inputid).val();
+    var roomContent = $("#roomContent"+inputid).val();
+    var maxPeople = $("#maxPeople"+inputid).val();
+    var roomSize = $("#roomSize"+inputid).val();
+    var roomView = $("#roomView"+inputid).val();
+    var roomBed = $("#roomBed"+inputid).val();
+    var roomPrice = $("#roomPrice"+inputid).val();
+    const room1 = "room1"+inputid;
+    const room2 = "room2"+inputid;
+    const room3 = "room3"+inputid;
+    const room4 = "room4"+inputid;
+    var roomImg1 = $('input[name='+room1+']')[0].files[0];
+    var roomImg2 = $('input[name='+room2+']')[0].files[0];
+    var roomImg3 = $('input[name='+room3+']')[0].files[0];
+    var roomImg4 = $('input[name='+room4+']')[0].files[0];
+
+
+
+    let formData = new FormData();
+    formData.append("roomname",roomName);
+    formData.append("roomcontent",roomContent);
+    formData.append("maxpeople",maxPeople);
+    formData.append("size",roomSize);
+    formData.append("view",roomView);
+    formData.append("bed",roomBed);
+    formData.append("price",roomPrice);
+    formData.append("roommainimg",roomImg1);
+    formData.append("roomimg1",roomImg2);
+    formData.append("roomimg2",roomImg3);
+    formData.append("roomimg3",roomImg4);
+
+
+    $.ajax({
+        type:"POST",
+        url:"/updateRoom/"+roomid,
+        data: formData,
+        contentType: false,
+        processData: false,
+        enctype: "multipart/form-data",
+        dataType:"text"
+    }).done(function(resp) {
+        alert("수정이 완료 되었습니다.")
+        location.replace("/admin")
+    }).fail(function(error) {
+        alert("수정에 실패했습니다.");
+    })
+
 
 
 }

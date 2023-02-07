@@ -23,23 +23,23 @@
 
 
 <section class="ftco-section testimony-section bg-light">
-<%--    <div class="col-md-6">--%>
-<%--        <div class="form-group">--%>
-<%--            <label class="label" for="search_category">종류</label>--%>
-<%--            <div class="form-field">--%>
-<%--                <div class="select-wrap">--%>
-<%--                    <select name="search_category" id="search_category"--%>
-<%--                            class="form-control">--%>
-<%--                        <option value="title">제목</option>--%>
-<%--                        <option value="content">내용</option>--%>
-<%--                        <option value="category">카테고리</option>--%>
-<%--                    </select>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--    <input type="text" id="search_data">--%>
-<%--    <button id="search_btn">검색</button>--%>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="label" for="search_category">종류</label>
+            <div class="form-field">
+                <div class="select-wrap">
+                    <select name="search_category" id="search_category"
+                            class="form-control">
+                        <option value="title">제목</option>
+                        <option value="content">내용</option>
+                        <option value="category">카테고리</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="text" id="search_data">
+    <button id="search_btn">검색</button>
     <div class="container">
         <div class="row justify-content-center pb-5 mb-3">
             <div class="col-md-7 heading-section text-center ftco-animate">

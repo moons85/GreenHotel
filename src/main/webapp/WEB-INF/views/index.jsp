@@ -484,13 +484,26 @@
                     <a href="blog-single.html" class="block-20 rounded" style="background-image: url('images/image_2.jpg');">
                     </a>
                     <div class="text p-4 text-center">
-                        <h3 class="heading"><a href="#">Work Hard, Party Hard in a Luxury Chalet in the Alps</a></h3>
+                        <h3 class="heading"><a href="#">리뷰 작성하고 포인트 받기</a></h3>
                         <div class="meta mb-2">
-                            <div><a href="#">January 30, 2020</a></div>
-                            <div><a href="#">Admin</a></div>
-                            <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
+                            <c:choose>
+                                <c:when test="${empty principal}">
+                                    <br>
+                                    <p>로그인이 필요합니다.</p>
+                                    <a href="/auth/login" class="nav-link btn btn-primary">Login
+                                        하러 가기</a>
+                                </c:when>
+                                <c:otherwise>
+                                    <button class="btn-open-popup btn-primary btn">지금 바로
+                                        리뷰 작성하기</button>
+                                    <p class="text-descrandom">
+                                        *리뷰 작성은 1회만 가능합니다.
+                                    </p>
+
+                                </c:otherwise>
+                            </c:choose>
                         </div>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+                        <p>이벤트 참여 및 이용에 관한 자세한 문의는 Private Hotel 문의 센터를 이용해주시기 바라며, 이벤트 상품의 경우 별도 환불이 어려움을 사전 안내드리는 바입니다.</p>
                     </div>
                 </div>
             </div>
