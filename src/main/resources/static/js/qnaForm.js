@@ -6,6 +6,9 @@ let index = {
         $("#deletebtn").on("click", () => {
             this.delete();
         });
+        $("#search_btn").on("click", () => {
+            this.search_qna();
+        });
     },
     test : function() {
         var title = document.getElementById("title").value;
@@ -59,6 +62,23 @@ let index = {
         }).fail(function(error) {
             alert("실패");
         })
+    },
+    search_qna: function (){
+        const s_category= $("#search_category").val()
+        const s_date = $("#search_data").val()
+        console.log(s_category,s_date)
+
+        // $.ajax({
+        //     url:"/auth/find_faq",
+        //     type:"POST",
+        //     success:function(data){
+        //         console.dir(data)
+        //     },
+        //     data:{"s_category":$("#search_category").val(), "s_data":$("#search_data").val()} ,
+        //     error:function(){
+        //         alert("에러입니다");
+        //     }
+        // });
     }
 }
 index.init();

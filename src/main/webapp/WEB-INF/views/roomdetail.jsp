@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ include file="layout/header.jsp"%>
-<section class="hero-wrap hero-wrap-2" style="background-image: url(/images/${rd.roommainimg});" data-stellar-background-ratio="0.5">
+<section class="hero-wrap hero-wrap-2" style="background-image: url(/room/${rd.roommainimg});" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row no-gutters">
             <div class="col-md-8">
-                <div id="image" class="hero-wrap hero-wrap-2" style="background-image: url(/images/${rd.roommainimg}); height: 600px;"></div>
+                <div id="image" class="hero-wrap hero-wrap-2" style="background-image: url(/room/${rd.roommainimg}); height: 600px;"></div>
             </div>
             <div class="col-md-4 p-4 p-md-5 bg-white">
                 <h2 class="font-weight-bold mb-4 h2_title">${rd.roomname}</h2>
@@ -39,13 +39,13 @@
         <br>
         <div class="row no-gutters">
             <div class="col-md-4">
-                <div id="image" class="hero-wrap hero-wrap-2" style="background-image: url(/images/${rd.roomimg1}); height: 300px;"></div>
+                <div id="image" class="hero-wrap hero-wrap-2" style="background-image: url(/room/${rd.roomimg1}); height: 300px;"></div>
             </div>
             <div class="col-md-4">
-                <div id="image" class="hero-wrap hero-wrap-2" style="background-image: url(/images/${rd.roomimg2}); height: 300px;"></div>
+                <div id="image" class="hero-wrap hero-wrap-2" style="background-image: url(/room/${rd.roomimg2}); height: 300px;"></div>
             </div>
             <div class="col-md-4">
-                <div id="image" class="hero-wrap hero-wrap-2" style="background-image: url(/images/${rd.roomimg3}); height: 300px;"></div>
+                <div id="image" class="hero-wrap hero-wrap-2" style="background-image: url(/room/${rd.roomimg3}); height: 300px;"></div>
             </div>
         </div>
     </div>

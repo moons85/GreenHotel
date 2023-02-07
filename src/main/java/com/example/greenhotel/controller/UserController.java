@@ -4,6 +4,7 @@ import com.example.greenhotel.model.Event;
 import com.example.greenhotel.model.User;
 import com.example.greenhotel.repository.UserRepository;
 import com.example.greenhotel.service.EventService;
+import com.example.greenhotel.service.RoomService;
 import com.example.greenhotel.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -26,6 +27,9 @@ public class UserController {
 
     @Autowired
     private EventService eventService;
+
+    @Autowired
+    private RoomService roomService;
 
     public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -73,6 +77,9 @@ public class UserController {
     public String newPassword(){return "/newPassword";}
 
     @GetMapping("/admin")
-    public String admin(){return "/admin";}
+    public String admin(Model model,@PageableDefault Pageable pageable) {
+        model.addAttribute("rooms", roomService.방목록(pageable));
+        return "/admin";
+    }
 
 }

@@ -33,6 +33,11 @@ public class FaqService {
         return faqRepository.findAll(pageable);
     }
 
+//    public List<Faq> 글검색(String s_category, String s_data) {
+//        List<Faq> faq =  faqRepository.findfaq(s_category,s_data);
+//        return faq;
+//    }
+
     public Faq 상세보기(int id){
         return faqRepository.findById(id).orElseThrow(()->{
             System.out.println(id);

@@ -5,8 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Data
 @NoArgsConstructor
@@ -28,4 +30,7 @@ public class Event {
 
     @Column(nullable = false)
     private String coupon;
+
+    @CreationTimestamp
+    private Timestamp createTime;
 }
