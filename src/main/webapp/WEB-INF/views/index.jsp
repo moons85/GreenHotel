@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ include file="layout/header.jsp" %>
+
+<script defer src="/js/popup.js"></script>
+<%@ include file="popup.jsp"%>
 <div class="modal">
     <div class="modal_body">
         <p class="modal_title">랜덤 쿠폰 뽑기</p>
