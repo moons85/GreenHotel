@@ -460,27 +460,23 @@
                     </a>
                     <div class="text p-4 text-center">
                         <h3 class="heading"><a href="#">Private Hotel 오픈 기념 쿠폰 뽑기</a></h3>
-<%--                        <div class="meta mb-2">--%>
-<%--                            <div><a href="#">January 30, 2020</a></div>--%>
-<%--                            <div><a href="#">Admin</a></div>--%>
-<%--                            <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>--%>
-<%--                        </div>--%>
-                        <%--                        이용내역이 있으면 기회부여--%>
-                        <c:choose>
-                            <c:when test="${empty principal}">
-                                <br>
-                                <p>로그인이 필요합니다.</p>
-                                <a href="/auth/login" class="nav-link btn btn-primary">Login 하러 가기</a>
-                            </c:when>
-                            <c:otherwise>
-                                <button class="btn-open-popup btn-primary btn">지금 바로 뽑아보기</button>
-                                <p class="text-descrandom">*1인당 참여제한이 1회 있습니다.
-                                    <br>*당첨 쿠폰은 3개월 이내로 사용이 가능합니다.</p>
-                            </c:otherwise>
-                        </c:choose>
-
+                        <div class="meta mb-2">
+                            <c:choose>
+                                <c:when test="${empty principal}">
+                                    <br>
+                                    <p>로그인이 필요합니다.</p>
+                                    <a href="/auth/login" class="nav-link btn btn-primary">Login 하러 가기</a>
+                                </c:when>
+                                <c:otherwise>
+                                    <button class="btn-open-popup btn-primary btn">지금 바로 뽑아보기</button>
+                                    <p class="text-descrandom">*1인당 참여제한이 1회 있습니다.
+                                        <br>*당첨 쿠폰은 3개월 이내로 사용이 가능합니다.</p>
+                                </c:otherwise>
+                            </c:choose>
+                        </div>
+                        <p>이벤트 참여 및 이용에 관한 자세한 문의는 Private Hotel 문의 센터를 이용해주시기 바라며, 이벤트 상품의 경우 별도 환불이 어려움을 사전 안내드리는 바입니다.</p>
                     </div>
-                    <p>이벤트 참여 및 이용에 관한 자세한 문의는 Private Hotel 문의 센터를 이용해주시기 바라며, 이벤트 상품의 경우 별도 환불이 어려움을 사전 안내드리는 바입니다.</p>
+
                 </div>
             </div>
             <div class="col-md-4 d-flex ftco-animate">
@@ -516,13 +512,11 @@
                     <a href="blog-single.html" class="block-20 rounded" style="background-image: url('images/image_3.jpg');">
                     </a>
                     <div class="text p-4 text-center">
-                        <h3 class="heading"><a href="#">Work Hard, Party Hard in a Luxury Chalet in the Alps</a></h3>
+                        <h3 class="heading"><a href="/auth/tour">호텔 주변 관광지를 소개해 드립니다.</a></h3>
                         <div class="meta mb-2">
-                            <div><a href="/auth/tour">January 30, 2020</a></div>
-                            <div><a href="#">Admin</a></div>
-                            <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
+                            <div><a href="/auth/tour">보러가기</a></div>
                         </div>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+<%--                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>--%>
                     </div>
                 </div>
             </div>
