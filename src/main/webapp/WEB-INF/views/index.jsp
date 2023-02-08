@@ -1,31 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+         pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ include file="layout/header.jsp"%>
+<%@ include file="layout/header.jsp" %>
 
 <script defer src="/js/popup.js"></script>
 <%@ include file="popup.jsp"%>
 
 <div class="modal">
 
-	<div class="modal_body">
-		<p class="modal_title">랜덤 쿠폰 뽑기</p>
-		<h2 class="h2_title2 h2_title">Test Your Luck!</h2>
-		<div class="select_wrap">
-			<input type="button" class="select_btn" value="1"> <input
-				type="button" class="select_btn" value="2"> <input
-				type="button" class="select_btn" value="3"> <input
-				type="button" class="select_btn" value="4"> <input
-				type="button" class="select_btn" value="5"> <input
-				type="button" class="select_btn" value="6"> <input
-				type="button" class="select_btn" value="7"> <input
-				type="button" class="select_btn" value="8"> <input
-				type="button" class="select_btn" value="9">
-		</div>
-		<%--        <input type="hidden" value="${principal.user.point}" id="point">--%>
-		<input type="hidden" value="${principal.user.id}" id="uId">
-	</div>
+    <div class="modal_body">
+        <p class="modal_title">랜덤 쿠폰 뽑기</p>
+        <h2 class="h2_title2 h2_title">Test Your Luck!</h2>
+        <div class="select_wrap">
+            <input type="button" class="select_btn" value="1">
+            <input type="button" class="select_btn" value="2">
+            <input type="button" class="select_btn" value="3">
+            <input type="button" class="select_btn" value="4">
+            <input type="button" class="select_btn" value="5">
+            <input type="button" class="select_btn" value="6">
+            <input type="button" class="select_btn" value="7">
+            <input type="button" class="select_btn" value="8">
+            <input type="button" class="select_btn" value="9">
+        </div>
+<%--        <input type="hidden" value="${principal.user.point}" id="point">--%>
+        <input type="hidden" value="${principal.user.id}" id="uId">
+    </div>
 </div>
 
 
@@ -607,7 +607,6 @@
 </section>
 
 <section id="eventsection" class="ftco-section bg-light">
-
 	<div class="container">
 		<div class="row justify-content-center pb-5 mb-3">
 			<div class="col-md-7 heading-section text-center ftco-animate">
@@ -616,21 +615,14 @@
 			</div>
 		</div>
 		<div class="row d-flex">
-			<div class="col-md-4 d-flex ftco-animate">
-				<div class="blog-entry align-self-stretch">
-					<a href="#" class="block-20 rounded"
-						style="background-image: url('images/image_1.jpg');"> </a>
-					<div class="text p-4 text-center">
-						<h3 class="heading">
-							<a href="#">Private Hotel 오픈 기념 쿠폰 뽑기</a>
-						</h3>
-						<%--                        <div class="meta mb-2">--%>
-						<%--                            <div><a href="#">January 30, 2020</a></div>--%>
-						<%--                            <div><a href="#">Admin</a></div>--%>
-						<%--                            <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>--%>
-						<%--                        </div>--%>
-						<%--                        이용내역이 있으면 기회부여--%>
-						<c:choose>
+			          <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry align-self-stretch">
+              <a href="blog-single.html" class="block-20 rounded" style="background-image: url('images/image_1.jpg');">
+              </a>
+              <div class="text p-4 text-center">
+                <h3 class="heading"><a href="#">Private Hotel 오픈 기념 쿠폰 뽑기</a></h3>
+                <div class="meta mb-2">
+<c:choose>
 							<c:when test="${empty principal}">
 								<br>
 								<p>로그인이 필요합니다.</p>
@@ -641,27 +633,25 @@
 								<button class="btn-open-popup btn-primary btn">지금 바로
 									뽑아보기</button>
 								<p class="text-descrandom">
-									*1인당 참여제한이 1회 있습니다. <br>*당첨 쿠폰은 3개월 이내로 사용이 가능합니다.
+									*당첨 쿠폰은 3개월 이내로 사용이 가능합니다.
 								</p>
+
 							</c:otherwise>
 						</c:choose>
-					</div>
-					<p>이벤트 참여 및 이용에 관한 자세한 문의는 Private Hotel 문의 센터를 이용해주시기 바라며, 이벤트
-						상품의 경우 별도 환불이 어려움을 사전 안내드리는 바입니다.</p>
-
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4 d-flex ftco-animate">
-			<div class="blog-entry align-self-stretch">
-				<a href="blog-single.html" class="block-20 rounded"
-					style="background-image: url('images/image_2.jpg');"> </a>
-				<div class="text p-4 text-center">
-					<h3 class="heading">
-						<a href="#">리뷰 작성하고 포인트 받기</a>
-					</h3>
-					<div class="meta mb-2">
-						<c:choose>
+                    <p>이벤트 참여 및 이용에 관한 자세한 문의는 Private Hotel 문의 센터를 이용해주시기 바라며, 이벤트 상품의 경우 별도 환불이 어려움을 사전 안내드리는 바입니다.</p>
+                </div>
+</div>
+            </div>
+          </div>
+			
+						          <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry align-self-stretch">
+              <a href="blog-single.html" class="block-20 rounded" style="background-image: url('images/image_2.jpg');">
+              </a>
+              <div class="text p-4 text-center">
+                <h3 class="heading"><a href="#">리뷰 작성하고 포인트 받기</a></h3>
+                <div class="meta mb-2">
+<c:choose>
 							<c:when test="${empty principal}">
 								<br>
 								<p>로그인이 필요합니다.</p>
@@ -669,42 +659,44 @@
 									하러 가기</a>
 							</c:when>
 							<c:otherwise>
-								<button class="btn-open-popup btn-primary btn">지금 바로 리뷰
-									작성하기</button>
-								<p class="text-descrandom">*리뷰 작성은 1회만 가능합니다.</p>
+								<button class="btn-open-popup btn-primary btn">지금 바로
+									리뷰 작성하기</button>
+								<p class="text-descrandom">
+									*리뷰 작성은 1회만 가능합니다.
+								</p>
 
 							</c:otherwise>
 						</c:choose>
+                </div>
+                <p>이벤트 참여 및 이용에 관한 자세한 문의는 Private Hotel 문의 센터를 이용해주시기 바라며, 이벤트 상품의 경우 별도 환불이 어려움을 사전 안내드리는 바입니다.</p>
+              </div>
+            </div>
+          </div>
+			
+			<div class="col-md-4 d-flex ftco-animate">
+				<div class="blog-entry align-self-stretch">
+					<a href="blog-single.html" class="block-20 rounded"
+						style="background-image: url('images/image_3.jpg');"> </a>
+					<div class="text p-4 text-center">
+						<h3 class="heading">
+							<a href="#">Work Hard, Party Hard in a Luxury Chalet in the
+								Alps</a>
+						</h3>
+						<div class="meta mb-2">
+							<div>
+								<a href="#">January 30, 2020</a>
+							</div>
+							<div>
+								<a href="#">Admin</a>
+							</div>
+							<div>
+								<a href="#" class="meta-chat"><span class="fa fa-comment"></span>
+									3</a>
+							</div>
+						</div>
+						<p>Far far away, behind the word mountains, far from the
+							countries Vokalia and Consonantia</p>
 					</div>
-					<p>이벤트 참여 및 이용에 관한 자세한 문의는 Private Hotel 문의 센터를 이용해주시기 바라며, 이벤트
-						상품의 경우 별도 환불이 어려움을 사전 안내드리는 바입니다.</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-md-4 d-flex ftco-animate">
-			<div class="blog-entry align-self-stretch">
-				<a href="blog-single.html" class="block-20 rounded"
-					style="background-image: url('images/image_3.jpg');"> </a>
-				<div class="text p-4 text-center">
-					<h3 class="heading">
-						<a href="#">Work Hard, Party Hard in a Luxury Chalet in the
-							Alps</a>
-					</h3>
-					<div class="meta mb-2">
-						<div>
-							<a href="#">January 30, 2020</a>
-						</div>
-						<div>
-							<a href="#">Admin</a>
-						</div>
-						<div>
-							<a href="#" class="meta-chat"><span class="fa fa-comment"></span>
-								3</a>
-						</div>
-					</div>
-					<p>Far far away, behind the word mountains, far from the
-						countries Vokalia and Consonantia</p>
 				</div>
 			</div>
 		</div>

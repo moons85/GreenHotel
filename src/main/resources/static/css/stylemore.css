@@ -266,6 +266,29 @@ select {
 	color:#b49178;
 }
 
+.tabletext{
+	  color: #222;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size:10pt;
+}
+.tablehead{
+	border-bottom:1pt solid #b49178;
+		color:#b49178;
+}
+
+.tablehead>th{
+		padding-bottom:6px;
+	
+}
+
+.tablebody{
+		border-bottom:1pt solid #eee;
+		color:#777;
+}
+
+.tablebody>td{
+			padding:8px;
+}
 
 @media (max-width: 760px) {
   .idcheckbtn{
