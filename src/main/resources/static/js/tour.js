@@ -1,6 +1,6 @@
 const API_KEY = '5%2F42Tgoge4aBc7Gapc9HBPLyyI4kq1Vx2ZZXAks1fVpekEQUxJHnJpARdCqWwdIGkKZ91w8XHqS25FL42vQUmA%3D%3D'
 async function getData(){
-    const url = `http://apis.data.go.kr/B551011/KorService/locationBasedList?ServiceKey=5%2F42Tgoge4aBc7Gapc9HBPLyyI4kq1Vx2ZZXAks1fVpekEQUxJHnJpARdCqWwdIGkKZ91w8XHqS25FL42vQUmA%3D%3D&contentTypeId=12&mapX=127.000535&mapY=37.267809&radius=5000&listYN=Y&MobileOS=ETC&MobileApp=AppTest&arrange=A&numOfRows=48&pageNo=1&_type=json`
+    const url = `http://apis.data.go.kr/B551011/KorService/locationBasedList?ServiceKey=5%2F42Tgoge4aBc7Gapc9HBPLyyI4kq1Vx2ZZXAks1fVpekEQUxJHnJpARdCqWwdIGkKZ91w8XHqS25FL42vQUmA%3D%3D&contentTypeId=12&mapX=127.000535&mapY=37.267809&radius=5000&listYN=Y&MobileOS=ETC&MobileApp=AppTest&arrange=A&numOfRows=12&pageNo=1&_type=json`
     const response = await fetch(url)
     const data = await response.json()
     const list = data.response.body.items.item;
@@ -14,6 +14,8 @@ async function getData(){
         imglist.push(list[i].firstimage)
     }
     for(let i = 0; i<list.length; i++){
+        let mainwrap = document.createElement('div')
+        mainwrap.setAttribute("class", "mainwrap")
         let wraper = document.createElement('div');
         wraper.setAttribute("class","wraper")
         let div1 = document.createElement('div')
@@ -40,7 +42,8 @@ async function getData(){
         div1.append(img)
         div1.append(div2)
         wraper.append(div1)
-        tourlist.append(wraper)
+        mainwrap.append(wraper)
+        tourlist.append(mainwrap)
     }
 
 
