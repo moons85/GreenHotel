@@ -138,23 +138,14 @@
 
 .modal_title{
     font-size: 1rem;
-<<<<<<< HEAD
-      font-family: 'Nanum Gothic', sans-serif;
-      color:#b49178;
-      margin-top:20px;    
-=======
     font-family: 'Nanum Gothic', sans-serif;
     color:#b49178;
     margin-top:20px;
->>>>>>> branch 'master' of https://github.com/moons85/GreenHotel.git
 }
 
 .modaltitle2{
-<<<<<<< HEAD
-	margin-top:20px;
-=======
+
     margin-top:20px;
->>>>>>> branch 'master' of https://github.com/moons85/GreenHotel.git
 }
 
 .select_wrap{
@@ -209,11 +200,7 @@
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
-<<<<<<< HEAD
-        color: #333;
-=======
     color: #333;
->>>>>>> branch 'master' of https://github.com/moons85/GreenHotel.git
 }
 
 .select_btn:focus{
@@ -221,44 +208,6 @@
 }
 
 .hovercursor{
-<<<<<<< HEAD
-	cursor:pointer;
-}
-
-.coupondiv{
-	    line-height: 1;
-	margin:30px auto;
-	width:90%;
-	border-radius:10px;
-    box-shadow: 0 4px 10px 0 #ddd;
-    padding:15px 30px 15px 30px;
-}
-
-.coupondiv>ul{
-		    line-height: 1.8;
-	    padding-inline-start: 0px;
-}
-
-.coupontitle{
-	    font-size: 1.4rem;
-      font-family: 'Nanum Gothic', sans-serif;
-      font-weight:700;
-      color:#b49178;
-}
-
-.couponsub{
-	padding-bottom:-10px;
-}
-
-.coupondiv:hover{
-	    background:#fbf0e8;
-}
-
-.coupon_a{
-	position:absolute;
-	bottom: 30px;
-	left:205px;
-=======
     cursor:pointer;
 }
 
@@ -295,5 +244,4 @@
     position:absolute;
     bottom: 30px;
     left:205px;
->>>>>>> branch 'master' of https://github.com/moons85/GreenHotel.git
 }
