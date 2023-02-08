@@ -27,7 +27,7 @@ public class uploadDto {
     private MultipartFile roomimg2;
     private MultipartFile roomimg3;
 
-    public Room toEntity(String roomname, String roomcontent, String maxpeople, String size, String view, String bed, String price) {
+    public Room toEntity(String roomname, String roomcontent, String maxpeople, String size, String views, String bed, String price) {
         return Room.builder()
                 .roomname(roomname)
                 .roomcontent(roomcontent)

@@ -1,4 +1,5 @@
 let index = {
+
     init: function() {
         $("#btnsignup").on("click", () => {
             this.test();

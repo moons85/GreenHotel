@@ -41,7 +41,7 @@ public class SecurityCoinfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
                 http.authorizeRequests()
                 .antMatchers("/admin/**").hasRole("MANAGER")
-                .antMatchers( "/","/auth/**", "/css/**", "/js/**", "/images/**", "/upload/**")
+                .antMatchers( "/","/auth/**", "/css/**", "/js/**", "/images/**", "/upload/**","/room/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()

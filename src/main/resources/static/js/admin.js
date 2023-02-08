@@ -40,6 +40,7 @@ function regist(){
     var roomImg2 = $('input[name="img2"]')[0].files[0];
     var roomImg3 = $('input[name="img3"]')[0].files[0];
     var roomImg4 = $('input[name="img4"]')[0].files[0];
+    console.log(roomName,roomContent,maxPeople,roomSize,roomView,roomBed,roomPrice,roomImg1,roomImg2,roomImg3,roomImg4);
 
     if(roomName.trim()==='' || roomContent.trim()==='' || maxPeople.trim()==='' ||
         roomSize.trim()==='' || roomView.trim()==='' || roomBed.trim()==='' || roomPrice ==='' ||

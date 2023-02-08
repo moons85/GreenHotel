@@ -518,7 +518,7 @@
                     <div class="text p-4 text-center">
                         <h3 class="heading"><a href="#">Work Hard, Party Hard in a Luxury Chalet in the Alps</a></h3>
                         <div class="meta mb-2">
-                            <div><a href="#">January 30, 2020</a></div>
+                            <div><a href="/auth/tour">January 30, 2020</a></div>
                             <div><a href="#">Admin</a></div>
                             <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
                         </div>
