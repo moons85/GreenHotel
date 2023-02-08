@@ -2,7 +2,9 @@
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="layout/header.jsp"%>
-<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+        crossorigin="anonymous"></script>
 <section class="hero-wrap hero-wrap-2"
          style="background-image: url(/images/room-13.png);"
          data-stellar-background-ratio="0.5">
@@ -24,71 +26,80 @@
 
 
 <section class="ftco-section testimony-section bg-light">
-  <div class="col-md-6">
-    <div class="form-group">
-      <label class="label" for="search_category">종류</label>
-      <div class="form-field">
-        <div class="select-wrap">
-          <select name="search_category" id="search_category"
-                  class="form-control">
-            <option value="title">제목</option>
-            <option value="content">내용</option>
-            <option value="category">카테고리</option>
-          </select>
-        </div>
-      </div>
-    </div>
-  </div>
-  <input type="text" id="search_data">
-  <button id="search_btn" >검색</button>
+
   <div class="container">
     <div class="row justify-content-center pb-5 mb-3">
       <div class="col-md-7 heading-section text-center ftco-animate">
         <h2>QnA List</h2>
       </div>
+      <div
+              class="col-md-12 text-center d-flex justify-content-center align-items-center">
+        <select name="search_category" id="search_category"
+                class="btn9 qselectbox">
+          <option value="title">제목</option>
+          <option value="content">내용</option>
+          <option value="category">카테고리</option>
+        </select> <input class="qform form-control col-md-6" type="text"
+                         id="search_data">
+        <button type="button" class="btn btn2 btn-primary btn9"
+                id="search_btn">검색</button>
+
+      </div>
     </div>
     <div class="row ftco-animate">
       <div class="col-md-12">
-        <div class="carousel-testimony owl-carousel">
-          <c:forEach var="faq" items="${faqs.content}">
-            <div class="item">
-              <div class="testimony-wrap d-flex">
-                <div class="user-img"
-                     style="background-image: url(../images/answer2.png)"></div>
-                <div class="text pl-4">
-									<span
-                                            class="quote d-flex align-items-center justify-content-center">
-										<i class="fa fa-quote-left"></i>
-									</span>
-                  <p>작성자 : ${faq.user.username}</p>
-                  <p class="qnaanswer">Q. ${faq.title}</p>
-                  <a href="/auth/qnadetail/${faq.id}">상세보기</a>
+        <c:choose>
+          <c:when test="${empty faqs.content}">
+            <p class="text-center" style="font-size:15pt;">검색 결과가 존재하지 않습니다.</p>
+          </c:when>
+          <c:otherwise>
+            <c:forEach var="faq" items="${faqs.content}">
+              <div class="carousel-testimony owl-carousel">
+                <div class="item">
+                  <div class="testimony-wrap d-flex">
+                    <div class="user-img"
+                         style="background-image: url(../images/answer2.png)"></div>
+                    <div class="text pl-4">
+											<span
+                                                    class="quote d-flex align-items-center justify-content-center">
+												<i class="fa fa-quote-left"></i>
+											</span>
+                      <p>작성자 : ${faq.user.username}</p>
+                      <p class="qnaanswer">Q. ${faq.title}</p>
+                      <a href="/auth/qnadetail/${faq.id}">상세보기</a>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </c:forEach>
-        </div>
-        <div class="col-md-12 text-center">
-          <c:choose>
-            <c:when test="${faqs.first}">
-              <a href="#" onclick="return false;" style="margin: 10px; color:#ccc;"> < Previous</a>
-            </c:when>
-            <c:otherwise>
-              <a href="?page=${faqs.number-1}" style="margin: 10px;"> < Previous</a>
 
-            </c:otherwise>
-          </c:choose>
-          <c:choose>
-            <c:when test="${faqs.last}">
-              <a href="#" onclick="return false;"  style="margin: 10px;color:#ccc;">Next >
-              </a>
-            </c:when>
-            <c:otherwise>
-              <a href="?page=${faqs.number+1}" style="margin: 10px;">Next >
-              </a>
-            </c:otherwise>
-          </c:choose>
-        </div>
+            </c:forEach>
+            <div class="col-md-12 text-center">
+              <c:choose>
+                <c:when test="${faqs.first}">
+                  <a href="#" onclick="return false;"
+                     style="margin: 10px; color: #ccc;"> < Previous</a>
+                </c:when>
+                <c:otherwise>
+                  <a href="?page=${faqs.number-1}" style="margin: 10px;"> <
+                    Previous</a>
+
+                </c:otherwise>
+              </c:choose>
+              <c:choose>
+                <c:when test="${faqs.last}">
+                  <a href="#" onclick="return false;"
+                     style="margin: 10px; color: #ccc;">Next > </a>
+                </c:when>
+                <c:otherwise>
+                  <a href="?page=${faqs.number+1}" style="margin: 10px;">Next >
+                  </a>
+                </c:otherwise>
+              </c:choose>
+            </div>
+          </c:otherwise>
+        </c:choose>
+
+
       </div>
     </div>
   </div>
@@ -116,8 +127,8 @@
 
                       <h3 class="mb-4">Get in touch</h3>
                       <div id="form-message-warning" class="mb-4"></div>
-                      <div id="form-message-success" class="mb-4">문의사항을 남겨주세요.
-                        빠른 시일 내로 답변드리겠습니다.</div>
+                      <div id="form-message-success" class="mb-4">문의사항을
+                        남겨주세요. 빠른 시일 내로 답변드리겠습니다.</div>
 
                       <input type="hidden" value="${principal.user.id}" id="userId">
                       <div class="row">

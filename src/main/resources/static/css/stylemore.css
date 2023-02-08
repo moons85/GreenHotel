@@ -290,6 +290,33 @@ select {
   padding:8px;
 }
 
+.qform{
+  margin:20px;
+}
+
+.qform:focus{
+  outline:none!important;
+}
+
+.btn9{
+  min-height:50px;
+  font-size:10pt;
+
+}
+
+.qselectbox{
+  width:100px;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.02);
+  text-align:center;
+}
+
+.qselectbox:focus{
+  outline: none;
+}
+
+
 @media (max-width: 760px) {
   .idcheckbtn{
     margin-top: 0px;}
