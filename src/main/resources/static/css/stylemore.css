@@ -15,7 +15,7 @@ p{
 }
 
 .name{
-    font-family: 'Hahmlet', serif;
+  font-family: 'Hahmlet', serif;
 }
 
 .btn3{
@@ -43,7 +43,7 @@ p{
 .heading{
   font-family: 'Hahmlet', serif;
   letter-spacing: -2px;
-  font-weight: 300;  
+  font-weight: 300;
 }
 
 .star{
@@ -74,13 +74,13 @@ p{
 }
 
 .idcheckbtn{
-padding: 10px 10px;
-letter-spacing: 0;
-font-family: 'Nanum Gothic', sans-serif;
-font-weight: bold 700;
-font-size: 10pt;
-margin-top: 40px;
-width: 100%;
+  padding: 10px 10px;
+  letter-spacing: 0;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-weight: bold 700;
+  font-size: 10pt;
+  margin-top: 40px;
+  width: 100%;
 }
 
 #form-message-success{
@@ -89,10 +89,10 @@ width: 100%;
 
 .btn_reservation{
   padding: 10px 10px;
-letter-spacing: 0;
-font-family: 'Nanum Gothic', sans-serif;
-font-weight: bold 700;
-font-size: 10pt;
+  letter-spacing: 0;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-weight: bold 700;
+  font-size: 10pt;
 }
 
 .pricestyle{
@@ -108,9 +108,9 @@ li{
 .liststyle{
   padding-inline-start: 0px;}
 
-  .price2{
-    font-size: 14pt;
-  }
+.price2{
+  font-size: 14pt;
+}
 
 .h2_title2{
   margin-bottom: 10px!important;
@@ -144,7 +144,7 @@ li{
 }
 
 .reviewtextarea{
-resize: none;
+  resize: none;
 }
 
 .idvalue{
@@ -160,21 +160,21 @@ resize: none;
 .h5title{
   font-family: 'Hahmlet', serif;
   letter-spacing: -2px;
-  font-weight: 400;  
+  font-weight: 400;
   color: #fff;
 }
 
 .border-top-left-radius{
-border-top-left-radius: 10px;
+  border-top-left-radius: 10px;
 }
 .border-top-right-radius{
-border-top-right-radius: 10px;
+  border-top-right-radius: 10px;
 }
 .border-bottom-left-radius{
-border-bottom-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 .border-bottom-right-radius{
-border-bottom-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 .margin-bottom{
   margin-bottom: 30px;
@@ -184,7 +184,7 @@ border-bottom-right-radius: 10px;
 }
 .shadow2{
   -webkit-box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.1) !important;
-  box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.1) !important; 
+  box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.1) !important;
 }
 
 .h5title{
@@ -261,59 +261,59 @@ select {
 
 
 .text-descrandom{
-	font-size:small;
-	margin-top: 20px;
-	color:#b49178;
+  font-size:small;
+  margin-top: 20px;
+  color:#b49178;
 }
 
 .tabletext{
-	  color: #222;
+  color: #222;
   font-family: 'Nanum Gothic', sans-serif;
   font-size:10pt;
 }
 .tablehead{
-	border-bottom:1pt solid #b49178;
-		color:#b49178;
+  border-bottom:1pt solid #b49178;
+  color:#b49178;
 }
 
 .tablehead>th{
-		padding-bottom:6px;
-	
+  padding-bottom:6px;
+
 }
 
 .tablebody{
-		border-bottom:1pt solid #eee;
-		color:#777;
+  border-bottom:1pt solid #eee;
+  color:#777;
 }
 
 .tablebody>td{
-			padding:8px;
+  padding:8px;
 }
 
 .qform{
-	margin:20px;
+  margin:20px;
 }
 
 .qform:focus{
-outline:none!important;
+  outline:none!important;
 }
 
 .btn9{
-	min-height:50px;
-	font-size:10pt;
-	
+  min-height:50px;
+  font-size:10pt;
+
 }
 
 .qselectbox{
-	width:100px;
-border: 1px solid #ccc;
+  width:100px;
+  border: 1px solid #ccc;
   border-radius: 0.5em;
   box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.02);
   text-align:center;
 }
 
 .qselectbox:focus{
-outline: none;
+  outline: none;
 }
 
 
