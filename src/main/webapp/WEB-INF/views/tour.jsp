@@ -2,8 +2,7 @@
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
-
+<link rel="stylesheet" href="/css/tour.css">
 <%@ include file="layout/header.jsp"%>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6c0872d868e5210385c4c92e6eb951e7"></script>
 <div class="modalal">
@@ -14,7 +13,7 @@
     </div>
 </div>
 <section class="hero-wrap hero-wrap-2"
-         style="background-image: url(/images/room-10.png);"
+         style="background-image: url(/images/room-16.png);"
          data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">

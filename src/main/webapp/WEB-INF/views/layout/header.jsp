@@ -10,6 +10,8 @@
 <html>
 <head>
     <title>Private hotel</title>
+    <link rel="shortvut icon" href="/images/logo.png">
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -20,7 +22,6 @@
 
     <link rel="stylesheet" href="/css/animate.css">
     <link rel="stylesheet" href="../css/random.css">
-    <link rel="stylesheet" href="/css/tour.css">
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
     <link rel="stylesheet" href="/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="/css/magnific-popup.css">
@@ -32,6 +33,8 @@
     <link rel="stylesheet" href="/css/popup.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/stylemore.css">
+    <link rel="stylesheet" href="/css/popup.css">
+
 </head>
 <body>
 <div class="wrap">
@@ -69,7 +72,7 @@
                         <li class="nav-item"><a href="/auth/service" class="nav-link">Services</a></li>
                         <li class="nav-item"><a href="/auth/room" class="nav-link">Rooms</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Reviews</a></li>
-                        <li class="nav-item"><a href="/auth/login" class="nav-link">login</a></li>
+                        <li class="nav-item"><a href="/auth/login" class="nav-link">Login</a></li>
                     </c:when>
                     <c:when test="${principal.user.roleType == 'MANAGER'}">
                         <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
@@ -80,12 +83,13 @@
                         <li class="nav-item"><a href="/admin" class="nav-link">Admin</a></li>
                     </c:when>
                     <c:otherwise>
+                        <li class="nav-item"><a href="/" class="nav-link">${principal.user.roleType}</a></li>
                         <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
                         <li class="nav-item"><a href="/auth/about" class="nav-link">About</a></li>
                         <li class="nav-item"><a href="/auth/service" class="nav-link">Services</a></li>
                         <li class="nav-item"><a href="/auth/room" class="nav-link">Rooms</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Reviews</a></li>
-                        <li class="nav-item"><a href="/mypage/${principal.user.id}" class="nav-link">mypage</a></li>
+                        <li class="nav-item"><a href="/mypage/${principal.user.id}" class="nav-link">Mypage</a></li>
                     </c:otherwise>
                 </c:choose>
 
