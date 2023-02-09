@@ -2,7 +2,7 @@
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="layout/header.jsp"%>
-
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6c0872d868e5210385c4c92e6eb951e7"></script>
 <section class="hero-wrap hero-wrap-2" style="background-image: url(/images/room-11.png);" data-stellar-background-ratio="0.5">
   <div class="overlay"></div>
   <div class="container">
@@ -155,6 +155,25 @@
     <div class="row no-gutters">
       <div class="col-md-8">
         <div id="map" class="map"></div>
+        <script>
+          var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+                  mapOption = {
+                    center: new kakao.maps.LatLng(37.267809, 127.000535), // 지도의 중심좌표
+                    level: 3 // 지도의 확대 레벨
+                  };
+
+          // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+          var map = new kakao.maps.Map(mapContainer, mapOption);
+          var markerPosition  = new kakao.maps.LatLng(37.267809, 127.000535);
+
+          // 마커를 생성합니다
+          var marker = new kakao.maps.Marker({
+            position: markerPosition
+          });
+
+          marker.setMap(map);
+
+        </script>
       </div>
       <div class="col-md-4 p-4 p-md-5 bg-white">
         <h2 class="font-weight-bold mb-4 h2_title">찾아오는 길</h2>

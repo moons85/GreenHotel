@@ -89,6 +89,11 @@ async function getData(){
     let btnOpenPopup = document.querySelectorAll('.btn_open_popup');
     btnOpenPopup.forEach((target)=>{
         target.addEventListener('click',(e)=>{
+            modal.classList.toggle('show');
+
+            if (modal.classList.contains('show')) {
+                body.style.overflow = 'hidden';
+            }
             var first = (e.target.parentElement.children[3]).value
             var second = (e.target.parentElement.children[2]).value
             var mapContainer = document.getElementById('kakaomap'), // 지도를 표시할 div
@@ -107,11 +112,7 @@ async function getData(){
             });
 
             marker.setMap(map);
-            modal.classList.toggle('show');
 
-            if (modal.classList.contains('show')) {
-                body.style.overflow = 'hidden';
-            }
         });
     });
 
