@@ -35,7 +35,7 @@
                                         <div class="col-md-10">
                                             <div class="form-group">
                                                 <label class="label" for="id">Id</label>
-                                                <input type="text" class="form-control" name="id" id="id" placeholder="아이디를 입력해주세요." required>
+                                                <input type="text" class="form-control" name="id" id="id" placeholder="아이디를 입력해주세요." >
                                             </div>
                                         </div>
                                         <div class="col-md-2">
@@ -49,7 +49,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="label" for="password">Password</label>
-                                                <input type="password" class="form-control" name="password" id="password" placeholder="비밀번호를 입력해주세요." required>
+                                                <input type="password" class="form-control" name="password" id="password" placeholder="비밀번호를 입력해주세요.(영문,숫자,특수문자 포함 8자 이상)" >
                                             </div>
                                         </div>
                                         <div class="col-md-12">
@@ -61,19 +61,19 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="label" for="name">Name</label>
-                                                <input type="text" class="form-control" name="name" id="name" placeholder="이름을 입력해주세요." required>
+                                                <input type="text" class="form-control" name="name" id="name" placeholder="이름을 입력해주세요." >
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="label" for="email">Email Address</label>
-                                                <input type="email" class="form-control" name="email" id="email" placeholder="이메일을 입력해주세요." required>
+                                                <input type="text" class="form-control" name="email" id="email" placeholder="이메일을 입력해주세요." >
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="label" for="phone">Phone</label>
-                                                <input type="text" class="form-control" name="phone" id="phone" placeholder="'-'제외 휴대폰 번호를 입력해주세요." required>
+                                                <input type="text" oninput="autoHyphen(this)" maxlength="13" class="form-control" name="phone" id="phone" placeholder="'-'제외 휴대폰 번호를 입력해주세요." >
                                             </div>
                                         </div>
                                         <div class="col-md-12 colbtn">
