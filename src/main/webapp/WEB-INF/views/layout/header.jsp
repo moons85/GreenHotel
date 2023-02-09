@@ -20,6 +20,7 @@
 
     <link rel="stylesheet" href="/css/animate.css">
     <link rel="stylesheet" href="../css/random.css">
+    <link rel="stylesheet" href="/css/tour.css">
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
     <link rel="stylesheet" href="/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="/css/magnific-popup.css">

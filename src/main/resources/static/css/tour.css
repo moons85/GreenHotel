@@ -1,3 +1,52 @@
+body{
+    position: relative;
+}
+
+.modalal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+
+    display: none;
+
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modalal.show {
+    display: block;
+}
+
+.modalal_body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 1000px;
+    height: 600px;
+
+    padding: 40px;
+
+    text-align: center;
+
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+
+    transform: translateX(-50%) translateY(-50%);
+}
+.mapwrap{
+    margin: 10px auto;
+    width: 900px;
+    height: 500px;
+    border: 1px solid;
+}
+#kakaomap{
+    width: 900px;
+    height: 500px;
+}
 .tour_list_wrap{
     margin: 30px auto;
     padding: 0;
@@ -25,13 +74,16 @@
     overflow: hidden;
 }
 
-.img{
+.firstimg{
     width: 100%;
     height: 50%;
 }
 .div2{
     width: 100%;
-    height: 40%;
+}
+
+.btn-open-popup{
+    cursor: pointer;
 }
 
 .t_title{
