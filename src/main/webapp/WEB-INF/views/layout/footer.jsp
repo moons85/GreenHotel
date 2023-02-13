@@ -6,7 +6,7 @@
             <div class="col-md-6 col-lg-3 mb-md-0 mb-4">
                 <h2 class="footer-heading"><a href="#" class="logo">Private hotel</a></h2>
                 <p>집과 같은 편안함, 궁과 같은 럭셔리함을 모두 잡은 당신만을 위한 숙소입니다.</p>
-                <a href="about us 연결">Read more <span class="fa fa-chevron-right" style="font-size: 11px;"></span></a>
+                <a href="/auth/about">Read more <span class="fa fa-chevron-right" style="font-size: 11px;"></span></a>
             </div>
             <div class="col-md-6 col-lg-3 mb-md-0 mb-4">
                 <h2 class="footer-heading">Services</h2>
@@ -35,7 +35,7 @@
                 <form action="#" class="subscribe-form">
                     <div class="form-group d-flex">
                         <input type="text" class="form-control rounded-left" placeholder="Enter email address">
-                        <button type="submit" class="form-control submit rounded-right"><span class="sr-only">Submit</span><i class="fa fa-paper-plane"></i></button>
+                        <button type="button" class="form-control submit rounded-right" onclick="location.href='/auth/qnaForm'"><span class="sr-only">Submit</span><i class="fa fa-paper-plane"></i></button>
                     </div>
                 </form>
                 <h2 class="footer-heading mt-5">Follow us</h2>
