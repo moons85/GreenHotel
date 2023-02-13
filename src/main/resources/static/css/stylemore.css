@@ -321,3 +321,12 @@ select {
   .idcheckbtn{
     margin-top: 0px;}
 }
+
+.errormessage{
+  font-size: 120pt;
+}
+
+.errordiv{
+  margin:100px;
+
+}
