@@ -87,8 +87,6 @@
 <script src="/js/owl.carousel.min.js"></script>
 <script src="/js/jquery.magnific-popup.min.js"></script>
 <script src="/js/scrollax.min.js"></script>
-<%--<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&callback=initMap"></script>--%>
-<%--<script src="/js/google-map.js"></script>--%>
 <script src="/js/main.js"></script>
 </body>
 </html>

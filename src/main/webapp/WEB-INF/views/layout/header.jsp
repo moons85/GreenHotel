@@ -83,7 +83,6 @@
                         <li class="nav-item"><a href="/admin" class="nav-link">Admin</a></li>
                     </c:when>
                     <c:otherwise>
-                        <li class="nav-item"><a href="/" class="nav-link">${principal.user.roleType}</a></li>
                         <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
                         <li class="nav-item"><a href="/auth/about" class="nav-link">About</a></li>
                         <li class="nav-item"><a href="/auth/service" class="nav-link">Services</a></li>
@@ -92,7 +91,6 @@
                         <li class="nav-item"><a href="/mypage/${principal.user.id}" class="nav-link">Mypage</a></li>
                     </c:otherwise>
                 </c:choose>
-
             </ul>
         </div>
     </div>
