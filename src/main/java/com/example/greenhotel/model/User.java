@@ -47,4 +47,7 @@ public class User {
 
     @CreationTimestamp
     private Timestamp createTime;
+
+    @ColumnDefault("0")
+    private int chat;
 }

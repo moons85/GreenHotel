@@ -80,6 +80,7 @@
                         <li class="nav-item"><a href="/auth/service" class="nav-link">Services</a></li>
                         <li class="nav-item"><a href="/auth/room" class="nav-link">Rooms</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Reviews</a></li>
+                        <li class="nav-item"><a href="/admin/roomList" class="nav-link">Chat</a></li>
                         <li class="nav-item"><a href="/admin" class="nav-link">Admin</a></li>
                     </c:when>
                     <c:otherwise>
