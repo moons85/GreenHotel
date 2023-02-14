@@ -1,5 +1,5 @@
 // websocket 생성
-const websocket = new WebSocket("ws://localhost:8085/ws/chat");
+const websocket = new WebSocket("ws://localhost:8081/ws/chat");
 websocket.onmessage = onMessage;	// 소켓이 메세지를 받을 때
 websocket.onopen = onOpen;		// 소켓이 생성될때(클라이언트 접속)
 websocket.onclose = onClose;	// 소켓이 닫힐때(클라이언트 접속해제)

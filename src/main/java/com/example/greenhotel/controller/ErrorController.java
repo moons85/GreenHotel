@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class ErrorController {
-    private String VIEW_PATH = "/errors/";
+    private String VIEW_PATH = "/errors";
 
     @GetMapping(value = "/error")
     public String handleError(HttpServletRequest request) {

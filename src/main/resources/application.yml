@@ -6,6 +6,9 @@ server:
       charset: UTF-8
       enabled: true
       force: true
+  error:
+    include-exception: true # 오류 응답에 exception의 내용을 포함할지 여부
+    include-stacktrace: always # 오류 응답에 stacktrace 내용을 포함할 지 여부
 spring:
   mvc:
     view:
@@ -19,6 +22,14 @@ spring:
     url: jdbc:mysql://localhost:3306/greenhotel?useSSL=false&allowPublicKeyRetrieval=true
     username: moons
     password: 1234
+  mail:
+    host: smtp.naver.com #smtp 서버 주소
+    port: 465 # 메일 인증서버 포트
+    username: hyn6305@naver.com #네이버 아이디
+    password: hyn40510987!@ #네이버 비밀번호
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.ssl.enable: true
 
   jpa:
     open-in-view: true
@@ -35,6 +46,11 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
+  thymeleaf:
+    prefix: classpath:templates/
+    suffix: .html
+    cache: false
+    view-names: thymeleaf/*
 
 cos:
   key: cos1234

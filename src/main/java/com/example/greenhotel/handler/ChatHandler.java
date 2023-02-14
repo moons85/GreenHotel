@@ -1,9 +1,4 @@
 package com.example.greenhotel.handler;
-
-
-
-
-
 import java.util.ArrayList;
 import java.util.List;
 

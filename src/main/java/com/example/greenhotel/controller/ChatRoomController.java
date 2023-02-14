@@ -6,6 +6,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+import com.example.greenhotel.dto.ResponseDto;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,7 +35,7 @@ public class ChatRoomController {
      * 채팅방 참여하기
      * @param roomId 채팅방 id
      */
-    @GetMapping("chat/{id}")
+    @GetMapping("/chat/{id}")
     public String joinRoom(@PathVariable ChatRoom id,Model model,@AuthenticationPrincipal PrincipalDetail principal) {
         List<Chat> chatList = chatService.findAllChatByRoomId(id);
         chatService.접속(id.getId());
@@ -64,13 +66,14 @@ public class ChatRoomController {
     @PostMapping("/room")
     public String createRoom(@AuthenticationPrincipal PrincipalDetail principal) {
         chatService.방만들기(principal.getUser().getId());
-        return "redirect:/roomList";
+        return "thymeleaf/roomList";
+//        return "/chat/"+principal.getUser().getId();
     }
 
     /**
      * 채팅방
      */
-    @GetMapping("admin/roomList")
+    @GetMapping("/admin/roomList")
     public String roomList(Model model,@AuthenticationPrincipal PrincipalDetail principal) {
 
 
