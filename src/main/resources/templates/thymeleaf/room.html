@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<title>Hello WebSocket</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" href="/css/reset.css">
+<link rel="stylesheet" href="/css/room.css">
+</head>
+<body>
+	<div id="main-content" class="container">
+		<div class="row">
+				<div class="col-md-12" id="col-md-12">
+				
+				
+				</div>
+			
+			<div class="col-md-6">
+				<div class="form-group">
+					<input type="text" id="message" class="form-control"
+						placeholder="메시지 내용"
+						onKeypress="javascript:if(event.keyCode==13){sendChat()}">
+				</div>
+				<div class="form-btn">
+					<button id="send" class="btn btn-default" onclick="sendChat()">전송</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script th:inline="javascript">
+    
+    var roomId = [[${roomId}]];
+    var chatList = [[${chatList}]];
+    var sender1= [[${sender}]];
+    var img= [[${receiver}]];
+    var objDiv = document.getElementById("col-md-12");
+    var classname;
+    var classname2;
+  function time(difference){
+     
+	  var now = new Date(difference);
+      var nowHour = now.getHours();
+		
+      var nowMt = now.getMinutes();
+	  if(nowMt<10){
+		  if ( nowHour <= 12  &&  nowHour  >= 6 ) {
+
+		       return '오전 ' + nowHour + ':0' + nowMt ;
+
+		      } else if (  nowHour >= 12  &&  nowHour  < 24  ) {
+
+		    	  return '오후 ' + nowHour + ':0' + nowMt ;
+
+		      }
+		  
+	  }
+	  else{
+		  if ( nowHour <= 12  &&  nowHour  >= 6 ) {
+
+		       return '오전 ' + nowHour + ':' + nowMt ;
+
+		      } else if (  nowHour >= 12  &&  nowHour  < 24  ) {
+
+		    	  return '오후 ' + nowHour + ':' + nowMt ;
+
+		      }
+
+		  
+	  }
+    
+
+     
+
+  }  function time2(difference){
+     
+	  var now = new Date(difference);
+      var nowHour = now.getHours();
+	  var nowdate =now.getDate();
+      var nowMt = now.getMinutes();
+
+	
+		  if ( nowHour <= 12  &&  nowHour  >= 6 ) {
+
+		       return 'am' +nowdate+ nowHour  + nowMt ;
+
+		      } else if (  nowHour >= 12  &&  nowHour  < 24  ) {
+
+		    	  return 'pm' +nowdate+ nowHour  + nowMt ;
+
+		      }
+
+		  
+	  
+    
+
+     
+
+  }
+    function connect() {
+    	objDiv.scrollTop = objDiv.scrollHeight;
+        var socket = new SockJS('/stomp/chat');
+        stompClient = Stomp.over(socket);
+        
+        
+        stompClient.connect({}, function (frame) {
+        	console.log("커넥트확인2");
+            loadChat(chatList) 
+
+      
+            stompClient.subscribe('/room/'+roomId, function (chatMessage) {
+            	
+                showChat(JSON.parse(chatMessage.body));
+                
+            });
+        });
+    }
+
+    function disconnect() {
+        if (stompClient !== null) {
+            stompClient.disconnect();
+        }
+        setConnected(false);
+        console.log("Disconnected");
+    }
+
+
+    function sendChat() {
+    	if($("#message").val()==""){
+    		return;
+    	}
+    	else{
+    		
+    		
+    		
+    	objDiv.scrollTop = objDiv.scrollHeight;
+    	
+        stompClient.send("/send/"+roomId, {},
+            JSON.stringify({
+                'sender': sender1,
+                'message' : $("#message").val(),
+                
+                    
+            }));
+        document.getElementById("message").value = null;
+    	}
+        
+    }
+
+    
+    function loadChat(chatList){
+
+        if(chatList != null) {
+            for(chat in chatList) {
+            	var sender=chatList[chat].sender;
+            	var writeDay = new Date(chatList[chat].sendDate);
+            	classname=$(".msgck:last-child").attr('class');
+            	classname1=$(".msgck:nth-last-child(2)").attr('class');
+            	classtext=$(".col-6:last-child div .time ").text();
+            	classtext1=$(".col-7:last-child div .time ").text();
+            	
+
+            	//보낸사람
+            	 if(sender===sender1){
+            		 
+            		 var num;
+            		 
+            		 var timer = time(writeDay);
+            		 
+                     str = "<div class='col-6 msgck'>";
+                     str += "<div class='alert alert-secondary'>";
+			
+					 str += "<p class='time' id=s"+chatList[chat].id+">" + time(writeDay) + "</p>";
+						if("col-6 msgck" == classname && timer == classtext){
+							 $(".msgck:last-child div .time").text("");
+						}  
+							 str += "<p class='msg'>" + chatList[chat].message  + "</p>";
+		                     str += "</div></div>";
+							
+						num= chatList[chat].id;
+                    
+                     $(".col-md-12").append(str);
+                 }
+         		//받는사람
+                 else{
+                	 var num;
+                	 var timer = time(writeDay);
+                     str = "<div class='col-7 msgck'>";
+                     str += "<div class='alert alert-warning'>";
+                     
+                     if("col-7 msgck" == classname && timer == classtext1 ){
+                    	 $(".msgck:last-child div .time").text("");
+							 str += "<p class='msg'>" + chatList[chat].message  + "</p>";
+		                     
+						}  
+						else{
+							
+							str += "<p class='name'>" + chatList[chat].sender +"</p>";
+		                     str += "<p class='msg'>" + chatList[chat].message  + "</p>";
+		                     
+							
+						}
+						num= chatList[chat].id;
+                     str += "<p class='time' id=r"+chatList[chat].id+">" + time(writeDay) + "</p>";
+                     str += "</div></div>";
+                   
+
+                     $(".col-md-12").append(str);
+                 }
+            
+            	 objDiv.scrollTop = objDiv.scrollHeight;
+            }
+        }
+    }
+
+    function showChat(chatMessage) {
+        var sender = chatMessage.sender;
+        var writeDay = new Date();
+     	var timer = time(writeDay);
+     	var cktime = time2(writeDay);
+     	classname=$(".msgck:last-child").attr('class');
+    	classname1=$(".msgck:nth-last-child(2)").attr('class');
+    	classtext=$(".col-6:last-child div .time ").text();
+    	classtext1=$(".col-7:last-child div .time ").text();
+    	console.log("1"+timer);
+    	console.log("2"+classtext);
+     	
+		//보낸사람
+        if(sender===sender1){
+            str = "<div class='col-6 msgck'>";
+            str += "<div class='alert alert-secondary'>";
+            str += "<p class='time' id=s" + cktime + ">" + timer + "</p>";
+ 			var text=$("#s"+cktime).text();
+ 			if("col-6 msgck" == classname && timer == classtext ){
+ 				
+ 				$(".col-6:last-child div .time ").text("");
+ 				console.log("지워짐")
+ 			}
+ 				
+            str += "<p class='msg'>" + chatMessage.message + "</p>";
+            str += "</div></div>";
+            $(".col-md-12").append(str);
+            
+          
+            
+        }
+		//받는사람
+        else{
+            str = "<div class='col-7 msgck'>";
+            str += "<div class='alert alert-warning'>";
+            var text=$("#r"+cktime).text();
+ 			if("col-7 msgck" == classname && timer == classtext1 ){
+ 				$(".col-7:last-child div .time ").text("");
+ 				str += "<p class='msg'>" + chatMessage.message  + "</p>";
+ 				str += "<p class='time' id=r" + cktime + ">" + timer + "</p>";
+ 			}
+ 			else{
+ 				str += "<p class='name'id=name" + cktime + ">" + chatList[chat].sender +"</p>";
+ 				str += "<p class='msg'>" + chatMessage.message  + "</p>";
+ 				str += "<p class='time' id=r" + cktime + ">" + timer + "</p>";
+ 	            
+ 			}
+            str += "</div></div>";
+            $(".col-md-12").append(str);
+        	}
+            
+            			
+        var str = '';
+
+        objDiv.scrollTop = objDiv.scrollHeight;
+    }
+
+	function readck(){
+		const data ={
+				readck : sender1
+		}
+		 $.ajax({
+		        type:"POST",
+		        url:"/readck",
+		        data: data,
+		        contentType: false,
+		        processData: false,
+		        enctype: "multipart/form-data",
+		        dataType:"text"
+		    }).done(function(resp) {
+		    	
+		       
+		    }).fail(function(error) {
+		        
+		    })
+		
+	}
+
+
+</script>
+<script>
+    window.onload = function (){
+    	objDiv.scrollTop = objDiv.scrollHeight;
+    	  
+        connect();
+        
+    }
+
+    window.BeforeUnloadEvent = function (){
+        disconnect();
+    }
+</script>
+</html>
