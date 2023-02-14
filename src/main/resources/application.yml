@@ -46,6 +46,10 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
-
+  thymeleaf:
+    prefix: classpath:templates/
+    suffix: .html
+    cache: false
+    view-names: thymeleaf/*
 cos:
   key: cos1234

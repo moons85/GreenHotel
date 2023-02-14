@@ -12,6 +12,8 @@
         rel="stylesheet">
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/room.css">
+    <link rel="stylesheet" href="/css/chat.css">
+  
 </head>
 <body>
 <div id="main-content" class="container">
@@ -21,14 +23,14 @@
 
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-6 chatformdiv">
       <div class="form-group">
-        <input type="text" id="message" class="form-control"
+        <input type="text" id="message" class="message-input "
                placeholder="메시지 내용"
                onKeypress="javascript:if(event.keyCode==13){sendChat()}">
       </div>
       <div class="form-btn">
-        <button id="send" class="btn btn-default" onclick="sendChat()">전송</button>
+        <button id="send" class="btn btn-default btn-message" onclick="sendChat()">전송</button>
       </div>
     </div>
   </div>
@@ -173,8 +175,8 @@
 
           var timer = time(writeDay);
 
-          str = "<div class='col-6 msgck'>";
-          str += "<div class='alert alert-secondary'>";
+          str = "<div class='col-6 msgck msgsend'>";
+          str += "<div class='alert alert-secondary '>";
 
           str += "<p class='time' id=s"+chatList[chat].id+">" + time(writeDay) + "</p>";
           if("col-6 msgck" == classname && timer == classtext){
@@ -201,8 +203,8 @@
           }
           else{
 
-            str += "<p class='name'>" + chatList[chat].sender +"</p>";
-            str += "<p class='msg'>" + chatList[chat].message  + "</p>";
+/*             str += "<p class='name'>" + chatList[chat].sender +"</p>";
+ */            str += "<p class='msg'>" + chatList[chat].message  + "</p>";
 
 
           }
@@ -233,9 +235,9 @@
 
     //보낸사람
     if(sender===sender1){
-      str = "<div class='col-6 msgck'>";
+      str = "<div class='col-6 msgck msgsend'>";
       str += "<div class='alert alert-secondary'>";
-      str += "<p class='time' id=s" + cktime + ">" + timer + "</p>";
+      str += "<p class='time chattime' id=s" + cktime + ">" + timer + "</p>";
       var text=$("#s"+cktime).text();
       if("col-6 msgck" == classname && timer == classtext ){
 
@@ -261,8 +263,8 @@
         str += "<p class='time' id=r" + cktime + ">" + timer + "</p>";
       }
       else{
-        str += "<p class='name'id=name" + cktime + ">" + chatList[chat].sender +"</p>";
-        str += "<p class='msg'>" + chatMessage.message  + "</p>";
+         str += "<p class='name'id=name" + cktime + ">" + chatList[chat].sender +"</p>";
+         str += "<p class='msg'>" + chatMessage.message  + "</p>";
         str += "<p class='time' id=r" + cktime + ">" + timer + "</p>";
 
       }

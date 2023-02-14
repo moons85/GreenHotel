@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 
 import com.example.greenhotel.dto.ChatMessage;
 import com.example.greenhotel.model.Chat;
-import com.example.greenhotel.model.ChatRoom;
 import com.example.greenhotel.service.ChatService;
 
 import lombok.RequiredArgsConstructor;
