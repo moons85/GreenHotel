@@ -6,7 +6,6 @@
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set value="notFooter" var="notFooter"/>
-<%@ include file="layout/linkHeader.jsp" %>
 <script defer src="/js/chat.js"></script>
 <link rel="stylesheet" href="/css/chat.css"/>
 <%@ include file="layout/header.jsp" %>
