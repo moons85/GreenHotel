@@ -5,6 +5,7 @@
 <%@ include file="layout/header.jsp"%>
 
 <script defer src="/js/popup.js"></script>
+<script defer src="/js/reservation.js"></script>
 <%@ include file="popup.jsp"%>
 <div class="modal">
     <div class="modal_body">
@@ -91,12 +92,12 @@
             <div class="container">
                 <div class="row justify-content-end">
                     <div class="col-lg-4">
-                        <form action="#" class="appointment-form">
+                        <form class="appointment-form">
                             <h3 class="mb-3">Book your rooms</h3>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="성명">
+                                        <input type="text" class="form-control" readonly="readonly" value="${principal.user.name}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -107,7 +108,8 @@
                                             </div>
                                             <input type="text"
                                                    class="form-control appointment_date-check-in"
-                                                   placeholder="Check-In">
+                                                   placeholder="Check-In"
+                                                   id="checkin">
                                         </div>
                                     </div>
                                 </div>
@@ -119,7 +121,8 @@
                                             </div>
                                             <input type="text"
                                                    class="form-control appointment_date-check-out"
-                                                   placeholder="Check-Out">
+                                                   placeholder="Check-Out"
+                                                   id="checkout">
                                         </div>
                                     </div>
                                 </div>
@@ -130,7 +133,7 @@
                                                 <div class="icon">
                                                     <span class="fa fa-chevron-down"></span>
                                                 </div>
-                                                <select name="" id="" class="form-control">
+                                                <select name="" id="adult" class="form-control">
                                                     <option value="">성인</option>
                                                     <option value="1">성인 1명</option>
                                                     <option value="2">성인 2명</option>
@@ -146,7 +149,7 @@
                                                 <div class="icon">
                                                     <span class="fa fa-chevron-down"></span>
                                                 </div>
-                                                <select name="" id="" class="form-control">
+                                                <select name="" id="kid" class="form-control">
                                                     <option value="">아동</option>
                                                     <option value="0">아동 0명</option>
                                                     <option value="1">아동 1명</option>
@@ -158,13 +161,13 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="연락처">
+                                        <input type="text" class="form-control" readonly="readonly" value="${principal.user.phonenumber}">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="submit" value="예약하기"
-                                               class="btn btn-primary btn4 py-3 px-4">
+                                        <input type="button" value="예약하기"
+                                               class="btn btn-primary btn4 py-3 px-4 reserve" onclick="room()">
                                     </div>
                                 </div>
                             </div>

@@ -29,7 +29,7 @@
               %>
             </ul>
           </div>
-          <a href="/#eventsection" id="couponhref" class="coupon_a text-center">다른 쿠폰 더 뽑으러 가기</a>
+<%--          <a href="/#eventsection" id="couponhref" class="coupon_a text-center">다른 쿠폰 더 뽑으러 가기</a>--%>
           <script>
             var anchor = document.getElementById("couponhref");
 
@@ -45,6 +45,35 @@
 
     </c:forEach>
 
+  </div>
+</div>
+<div class="resmodal">
+  <div class="resmodal_body">
+    <p class="resmodal_title">예약 내역</p>
+    <div>
+      <c:forEach var="res" items="${res.content}">
+        <c:choose>
+          <c:when test="${res.user.id==principal.user.id}">
+            <div class="coupondiv text-left">
+              <hr>
+              <ul>
+                <li class="coupontitle">${res.roomname}</li>
+                <li>체크인: ${res.startDate}</li>
+                <li>체크아웃: ${res.endDate}</li>
+                <li>성인: ${res.adult}</li>
+                <li>아동: ${res.kid}</li>
+                <li>가격: <fmt:formatNumber value="${res.price}" pattern="#,###"/>원</li>
+              </ul>
+            </div>
+          </c:when>
+          <c:otherwise>
+            <br>
+            예약 내역이 없습니다.
+          </c:otherwise>
+        </c:choose>
+
+      </c:forEach>
+    </div>
   </div>
 </div>
 <section class="hero-wrap hero-wrap-2" style="background-image: url(/images/room-14.png);" data-stellar-background-ratio="0.5">
@@ -129,18 +158,10 @@
                 </div>
                 <div class="dbox w-100 d-flex align-items-center">
                   <div class="icon d-flex align-items-center justify-content-center">
-                    <span style="font-size: 16pt;">H</span>
-                  </div>
-                  <div class="text pl-3">
-                    <p><span>이용횟수:</span> <a href="tel://1234567920"> 3 번</a></p>
-                  </div>
-                </div>
-                <div class="dbox w-100 d-flex align-items-center">
-                  <div class="icon d-flex align-items-center justify-content-center">
                     <span style="font-size: 16pt;">R</span>
                   </div>
                   <div class="text pl-3">
-                    <p><span>다음 예약 일자:</span>  2023.12.31</p>
+                    <a class="checkres hovercursor">예약 확인 하기</a>
                   </div>
                 </div>
                 <div class="dbox w-100 d-flex align-items-center">

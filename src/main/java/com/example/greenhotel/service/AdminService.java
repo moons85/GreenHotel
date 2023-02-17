@@ -169,9 +169,7 @@ public class AdminService {
             return false;
         }
 
-        Room room = roomuploadDto.toEntity(roomuploadDto.getBed(), roomuploadDto.getMaxpeople(),
-                roomuploadDto.getRoomcontent(), roomuploadDto.getRoomname(), roomuploadDto.getSize(),
-                roomuploadDto.getView(), roomuploadDto.getPrice());
+        Room room = roomuploadDto.toEntity(roomuploadDto.getRoomname(),roomuploadDto.getRoomcontent(),roomuploadDto.getMaxpeople(),roomuploadDto.getSize(),roomuploadDto.getView(),roomuploadDto.getBed(),roomuploadDto.getPrice());
         room.setRoommainimg(ImageName1);
         room.setRoomimg1(ImageName2);
         room.setRoomimg2(ImageName3);
@@ -264,3 +262,4 @@ public class AdminService {
     }
 
 }
+

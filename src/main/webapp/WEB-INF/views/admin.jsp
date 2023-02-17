@@ -119,27 +119,27 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="label" for="subject">객실 이름</label> <input
+                                                    <label class="label" for="roomname">객실 이름</label> <input
                                                         type="text" class="form-control" id="roomname"
                                                         placeholder="객실 이름을 적어주세요.">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="label" for="subject">가격</label> <input
+                                                    <label class="label" for="roomPrice">가격</label> <input
                                                         type="text" class="form-control" id="roomPrice"
                                                         placeholder="기본 예약가를 적어주세요.">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label class="label" for="subject">컨텐츠</label> <input
+                                                    <label class="label" for="roomContent">컨텐츠</label> <input
                                                         type="text" class="form-control" id="roomContent"
                                                         placeholder="객실과 관련된 세부사항 및 컨텐츠를 적어주세요.">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
-                                                <label class="label" for="subject">기타</label>
+                                                <label class="label">기타</label>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -169,51 +169,8 @@
                                                         placeholder="룸 사이즈">
                                                 </div>
                                             </div>
-                                            <!-- <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <div class="form-field">
-                                                        <div class="select-wrap">
-                                                            <select name="" id="" class="form-control">
-                                                                <option value="maxPeople" selected disabled>인원수</option>
-                                                                <option value="1">1명</option>
-                                                                <option value="2">2명</option>
-                                                                <option value="3">3명</option>
-                                                                <option value="4">4명</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <div class="form-field">
-                                                        <div class="select-wrap">
-                                                            <select name="" id="roomBed" class="form-control">
-                                                                <option value="" selected disabled>침대수</option>
-                                                                <option value="1">1개</option>
-                                                                <option value="2">2개</option>
-                                                                <option value="3">3개</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <div class="form-field">
-                                                        <div class="select-wrap">
-                                                            <select name="" id="roomView" class="form-control">
-                                                                <option value="" selected disabled>뷰</option>
-                                                                <option value="Normal View">일반 뷰</option>
-                                                                <option value="Sea view">바다 뷰</option>
-                                                                <option value="City view">도시 뷰</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> -->
                                             <div class="col-md-12">
-                                                <label class="label" for="rooms">Image</label><br>
+                                                <label class="label">Image</label><br>
                                                 <div class="form-group">
                                                     <label class="label" for="roomImg1">메인 이미지
                                                         &nbsp&nbsp</label><input type="file" id="roomImg1" name="img1">

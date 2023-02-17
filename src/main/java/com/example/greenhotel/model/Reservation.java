@@ -33,21 +33,18 @@ public class Reservation {
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(nullable = false)
-    private LocalDateTime startDate;
+    private String startDate;
 
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(nullable = false)
-    private LocalDateTime endDate;
+    private String endDate;
 
     @Column(nullable = false)
-    private int people;
+    private int adult;
 
-    @ColumnDefault("'x'")
-    private String food;
-
-    @ColumnDefault("'x'")
-    private String roomService;
+    @Column(nullable = false)
+    private int kid;
 
     @Column(nullable = false)
     private int price;

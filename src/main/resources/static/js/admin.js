@@ -29,17 +29,17 @@ function fixRoom(fixId) {
 }
 function regist(){
     console.log($("#roomname").val());
-    var roomName = $("#roomname").val();
-    var roomContent = $("#roomContent").val();
-    var maxPeople = $("#maxPeople").val();
-    var roomSize = $("#roomSize").val();
-    var roomView = $("#roomView").val();
-    var roomBed = $("#roomBed").val();
-    var roomPrice = $("#roomPrice").val();
-    var roomImg1 = $('input[name="img1"]')[0].files[0];
-    var roomImg2 = $('input[name="img2"]')[0].files[0];
-    var roomImg3 = $('input[name="img3"]')[0].files[0];
-    var roomImg4 = $('input[name="img4"]')[0].files[0];
+    const roomName = $("#roomname").val();
+    const roomContent = $("#roomContent").val();
+    const maxPeople = $("#maxPeople").val();
+    const roomSize = $("#roomSize").val();
+    const roomView = $("#roomView").val();
+    const roomBed = $("#roomBed").val();
+    const roomPrice = $("#roomPrice").val();
+    const roomImg1 = $('input[name="img1"]')[0].files[0];
+    const roomImg2 = $('input[name="img2"]')[0].files[0];
+    const roomImg3 = $('input[name="img3"]')[0].files[0];
+    const roomImg4 = $('input[name="img4"]')[0].files[0];
     console.log(roomName,roomContent,maxPeople,roomSize,roomView,roomBed,roomPrice,roomImg1,roomImg2,roomImg3,roomImg4);
 
     if(roomName.trim()==='' || roomContent.trim()==='' || maxPeople.trim()==='' ||
