@@ -121,7 +121,8 @@
                                     <li><span>Size:</span> ${room.size}</li>
                                     <li><span>View:</span> ${room.view}</li>
                                     <li><span>Bed:</span> ${room.bed}</li>
-                                    <li><span>price:</span> ${room.price}</li>
+                                    <li><span>price:</span> <span class="price mr-1"><fmt:formatNumber
+                                            value="${room.price}" pattern="#,###,###" /></span> <span class="per">원</span></li>
                                 </ul>
                             </div>
                             <div class="row justify-content-center">

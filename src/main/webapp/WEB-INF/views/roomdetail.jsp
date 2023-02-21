@@ -32,7 +32,7 @@
                         <li><span>Bed:</span> ${rd.bed}</li>
                     </ul>
                     <h4 class="mb-3 pricestyle"><span class="price mr-1"><fmt:formatNumber value="${rd.price}" pattern="#,###"/></span> <span class="per">원</span></h4>
-                    <p><a href="#" class="btn btn-primary btn_reservation">지금 바로 예약하기</a></p>
+                    <p><a href="#" class="btn btn-primary btn_reservation" onclick="reserve(this.id); return false;" id="${room.id}">지금 바로 예약하기</a></p>
                 </div>
             </div>
         </div>
@@ -220,4 +220,5 @@
         </div>
     </div>
 </section>
+<script defer src="/js/reservation.js"></script>
 <%@ include file="layout/footer.jsp"%>

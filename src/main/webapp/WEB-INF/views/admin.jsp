@@ -85,14 +85,16 @@
                                         <tr class="tablehead">
                                             <th>객실 이름</th>
                                             <th>체크인 날짜</th>
+                                            <th>체크아웃 날짜</th>
                                             <th>이름</th>
                                             <th>핸드폰번호</th>
                                         </tr>
                                         <c:if test="${!(empty reservation)}">
-                                            <c:forEach var="res" items="${reservation}">
+                                            <c:forEach var="res" items="${reservation.content}">
                                                 <tr class="tablebody">
                                                     <td>${res.roomname}</td>
                                                     <td>${res.startDate}</td>
+                                                    <td>${res.endDate}</td>
                                                     <td>${res.user.username}</td>
                                                     <td>${res.user.phonenumber}</td>
                                                 </tr>

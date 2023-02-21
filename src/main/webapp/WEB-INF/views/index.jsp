@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ include file="layout/header.jsp"%>
 
 <script defer src="/js/popup.js"></script>
@@ -74,8 +74,7 @@
                 <h2 class="subheading">Welcome to Private hotel</h2>
                 <h1 class="mb-4">Private luxury rooms just for you</h1>
                 <p>
-                    <a href="#" class="btn btn-primary btn2">예약하기</a> <a
-                        href="/auth/qnaForm" class="btn btn-white btn2">문의하기</a>
+                    <a href="/auth/qnaForm" class="btn btn-white btn2">문의하기</a>
                 </p>
             </div>
         </div>
@@ -88,7 +87,7 @@
     <c:when test="${empty principal}">
     </c:when>
     <c:otherwise>
-        <section class="ftco-section ftco-book ftco-no-pt ftco-no-pb">
+        <section class="ftco-section ftco-book ftco-no-pt ftco-no-pb" id="reservation">
             <div class="container">
                 <div class="row justify-content-end">
                     <div class="col-lg-4">
@@ -194,9 +193,6 @@
                         <h3 class="heading">조식</h3>
                         <p>오전 6시~10시 사이에 제공되는 조식 뷔페의 이용이 가능합니다. 인당 3만원의 티켓 비용이 발생하며,
                             방의 인원수와 동일한 인원수대로 티켓 예약이 가능합니다.</p>
-                        <p>
-                            <a href="#" class="btn btn-primary btn5">예약하기</a>
-                        </p>
                     </div>
                 </div>
             </div>
@@ -209,10 +205,6 @@
                         <h3 class="heading">공항 픽업</h3>
                         <p>공항에서 호텔까지 찾아오는 것이 어려운 투숙객분들을 위한 서비스입니다. 시간대 지정시 해당 시간대에 픽업
                             예약 신청이 가능하며, 가격은 인당 1만원입니다.</p>
-
-                        <p>
-                            <a href="#" class="btn btn-primary btn5">예약하기</a>
-                        </p>
                     </div>
                 </div>
             </div>
@@ -225,10 +217,6 @@
                         <h3 class="heading">이벤트 장식</h3>
                         <p>프러포즈, 생일 기념 이벤트와 같은 특별한 이벤트를 준비하고 있나요? 촛불부터 풍선까지 전문적인 이벤트
                             장식을 맡겨보세요.</p>
-
-                        <p>
-                            <a href="#" class="btn btn-primary btn5">예약하기</a>
-                        </p>
                     </div>
                 </div>
             </div>
@@ -244,139 +232,42 @@
             </div>
         </div>
         <div class="row no-gutters">
-            <div class="col-lg-6">
-                <div class="room-wrap d-md-flex">
-                    <a href="#" class="img"
-                       style="background-image: url(images/room-1.jpg);"></a>
-                    <div class="half left-arrow d-flex align-items-center">
-                        <div class="text p-4 p-xl-5 text-center">
-                            <p class="star mb-0">
-                                <span class="fa fa-star"></span><span class="fa fa-star"></span><span
-                                    class="fa fa-star"></span><span class="fa fa-star"></span><span
-                                    class="fa fa-star"></span>
-                            </p>
-                            <p class="mb-0">
-                                <span class="price mr-1">₩120,000</span> <span class="per">per
-									night</span>
-                            </p>
-                            <h3 class="mb-3">
-                                <a href="rooms.html">Suite Room</a>
-                            </h3>
-                            <ul class="list-accomodation">
-                                <li><span>Max:</span> 2 Persons</li>
-                                <li><span>Size:</span> 50 m2</li>
-                                <li><span>View:</span> Common View</li>
-                                <li><span>Bed:</span> 1</li>
-                            </ul>
-                            <p class="pt-1">
-                                <a href="room-single.html" class="btn-custom px-3 py-2">View
-                                    Room Details <span class="icon-long-arrow-right"></span>
-                                </a>
-                            </p>
+            <c:forEach var="room" items="${rooms.content}">
+                <div class="col-lg-6">
+                    <div class="room-wrap d-md-flex">
+                        <a href="#" class="img"
+                           style="background-image: url('/room/${room.roommainimg}');"></a>
+                        <div class="half left-arrow d-flex align-items-center">
+                            <div class="text p-4 p-xl-5 text-center">
+                                <p class="star mb-0">
+                                    <span class="fa fa-star"></span><span class="fa fa-star"></span><span
+                                        class="fa fa-star"></span><span class="fa fa-star"></span><span
+                                        class="fa fa-star"></span>
+                                </p>
+                                <p class="mb-0">
+									<span class="price mr-1"><fmt:formatNumber
+                                            value="${room.price}" pattern="#,###,###" /></span> <span class="per">원</span>
+                                </p>
+                                <h3 class="mb-3">
+                                    <a href="#">${room.roomname}</a>
+                                </h3>
+                                <ul class="list-accomodation">
+                                    <li><span>Max:</span> ${room.maxpeople}</li>
+                                    <li><span>Size:</span> ${room.size}</li>
+                                    <li><span>View:</span> ${room.view}</li>
+                                    <li><span>Bed:</span> ${room.bed}</li>
+                                </ul>
+                                <p class="pt-1">
+                                    <a href="/auth/roomdetail/${room.id}" class="btn-custom px-3 py-2">View
+                                        Room Details <span class="icon-long-arrow-right"></span>
+                                    </a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="room-wrap d-md-flex">
-                    <a href="#" class="img"
-                       style="background-image: url(images/room-5.jpg);"></a>
-                    <div class="half left-arrow d-flex align-items-center">
-                        <div class="text p-4 p-xl-5 text-center">
-                            <p class="star mb-0">
-                                <span class="fa fa-star"></span><span class="fa fa-star"></span><span
-                                    class="fa fa-star"></span><span class="fa fa-star"></span><span
-                                    class="fa fa-star"></span>
-                            </p>
-                            <p class="mb-0">
-                                <span class="price mr-1">₩120,000</span> <span class="per">per
-									night</span>
-                            </p>
-                            <h3 class="mb-3">
-                                <a href="rooms.html">Standard Room</a>
-                            </h3>
-                            <ul class="list-accomodation">
-                                <li><span>Max:</span> 2 Persons</li>
-                                <li><span>Size:</span> 45 m2</li>
-                                <li><span>View:</span> Sea View</li>
-                                <li><span>Bed:</span> 1</li>
-                            </ul>
-                            <p class="pt-1">
-                                <a href="room-single.html" class="btn-custom px-3 py-2">View
-                                    Room Details <span class="icon-long-arrow-right"></span>
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </c:forEach>
 
-            <div class="col-lg-6">
-                <div class="room-wrap d-md-flex">
-                    <a href="#" class="img order-md-last"
-                       style="background-image: url(images/room-3.jpg);"></a>
-                    <div class="half right-arrow d-flex align-items-center">
-                        <div class="text p-4 p-xl-5 text-center">
-                            <p class="star mb-0">
-                                <span class="fa fa-star"></span><span class="fa fa-star"></span><span
-                                    class="fa fa-star"></span><span class="fa fa-star"></span><span
-                                    class="fa fa-star"></span>
-                            </p>
-                            <p class="mb-0">
-                                <span class="price mr-1">₩180,000</span> <span class="per">per
-									night</span>
-                            </p>
-                            <h3 class="mb-3">
-                                <a href="rooms.html">Family Room</a>
-                            </h3>
-                            <ul class="list-accomodation">
-                                <li><span>Max:</span> 4 Persons</li>
-                                <li><span>Size:</span> 60 m2</li>
-                                <li><span>View:</span> Sea View</li>
-                                <li><span>Bed:</span> 2</li>
-                            </ul>
-                            <p class="pt-1">
-                                <a href="room-single.html" class="btn-custom px-3 py-2">View
-                                    Room Details <span class="icon-long-arrow-right"></span>
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="room-wrap d-md-flex">
-                    <a href="#" class="img order-md-last"
-                       style="background-image: url(images/room-4.jpg);"></a>
-                    <div class="half right-arrow d-flex align-items-center">
-                        <div class="text p-4 p-xl-5 text-center">
-                            <p class="star mb-0">
-                                <span class="fa fa-star"></span><span class="fa fa-star"></span><span
-                                    class="fa fa-star"></span><span class="fa fa-star"></span><span
-                                    class="fa fa-star"></span>
-                            </p>
-                            <p class="mb-0">
-                                <span class="price mr-1">₩200,000</span> <span class="per">per
-									night</span>
-                            </p>
-                            <h3 class="mb-3">
-                                <a href="rooms.html">Deluxe Room</a>
-                            </h3>
-                            <ul class="list-accomodation">
-                                <li><span>Max:</span> 3 Persons</li>
-                                <li><span>Size:</span> 60 m2</li>
-                                <li><span>View:</span> Common View</li>
-                                <li><span>Bed:</span> 1</li>
-                            </ul>
-                            <p class="pt-1">
-                                <a href="room-single.html" class="btn-custom px-3 py-2">View
-                                    Room Details <span class="icon-long-arrow-right"></span>
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>
@@ -631,8 +522,8 @@
                 <p class="mb-4">It’s safe to book online with us! Get your dream
                     stay in clicks or drop us a line with your questions.</p>
                 <p class="mb-0">
-                    <a href="#" class="btn btn-primary px-4 py-3 btn3">예약하기</a> <a
-                        href="#" class="btn btn-white px-4 py-3 btn3">문의하기</a>
+                    <a href="#reservation" class="btn btn-primary px-4 py-3 btn3">예약하기</a>
+                    <a href="/auth/qnaForm" class="btn btn-white px-4 py-3 btn3">문의하기</a>
                 </p>
             </div>
         </div>

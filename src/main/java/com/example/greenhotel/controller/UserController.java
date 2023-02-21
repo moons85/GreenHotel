@@ -42,7 +42,8 @@ public class UserController {
     }
 
     @GetMapping(value = {"", "/"})
-    public String index(){
+    public String index(Model model,@PageableDefault Pageable pageable){
+        model.addAttribute("rooms", roomService.방목록(pageable));
         return "/index";
     }
     @GetMapping("/auth/login")
@@ -86,6 +87,7 @@ public class UserController {
     @GetMapping("/admin")
     public String admin(Model model,@PageableDefault Pageable pageable) {
         model.addAttribute("rooms", roomService.방목록(pageable));
+        model.addAttribute("reservation",reservationService.예약목록(pageable));
 
         List<String> price = new ArrayList<>();
         for(int i=1; i<13; i++) {
