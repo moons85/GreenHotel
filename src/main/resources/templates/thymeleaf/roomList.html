@@ -3,16 +3,16 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
+
 <meta charset="UTF-8">
-<title>Title</title>
-</head>
+<title>Private hotel</title>
+<link rel="shortvut icon" href="/images/logo.png">
+
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <sec:authorize access="isAuthenticated()">
 	<sec:authentication property="principal" var="principal" />
 </sec:authorize>
-<title>Private hotel</title>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap"
 	rel="stylesheet">
@@ -37,6 +37,7 @@
 <link rel="stylesheet" href="../css/flaticon.css">
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/stylemore.css">
+<link rel="stylesheet" href="../css/chat.css">
 </head>
 <body>
 	<div class="wrap">
@@ -121,28 +122,34 @@
 				<div class="wrapper">
 					<div class="row no-gutters">
 						<div class="col-lg-4 col-md-5 d-flex align-items-stretch">
-							<div class="info-wrap bg-primary w-100 p-md-5 p-4">
-								<ul th:each="room : ${roomList}">
-									
-									<li th:id="${room.getId}" onclick=" post(this.id)">
-											<span style="color: black" th:text="${room.getUser.name}"></span>
-											<span style="color: black" th:text="${room.getMsg}"></span>
-											<span style="color: black" th:text="${room.getCount}" th:id="'count'+${room.getId}"></span>				
+							<div class="info-wrap w-100 p-md-2 p-4"
+								style="background-color: #ede3db;">
+								<ul class="chat-ul" th:each="room : ${roomList}">
+									<li class="chat-li" th:id="${room.getId}"
+										onclick="chatList(this.id)">
+										<div class="chat-div">
+											<div class="chat-textdiv">
+												<span class="chat-username" th:text="${room.getUser.name}"></span>
+												<input type="hidden" th:value="${room.getUser.name}" th:id="'name'+${room.getId}">
+											</div>
+											<p class="chat-message " th:text="${room.getMsg}"></p>
+										</div> <span class="countbg"><span th:text="${room.getCount}"
+											th:id="'count'+${room.getId}"></span></span>
 									</li>
-										<span style="color: black" onclick="deleteChat(this.id)" th:id="'delete'+${room.getId}">x</span>
+									<span class="chatdeletebtn " onclick="deleteChat(this.id)" th:id="'delete'+${room.getId}">x</span>
 								</ul>
 							</div>
 						</div>
 						<div class="col-lg-8 col-md-7 d-flex align-items-stretch">
 							<div class="contact-wrap w-100 p-md-5 p-4">
 								<div id="main-content" class="container">
-									<div class="row">
-										<div class="col-md-12" id="col-md-12"></div>
+									<div class="row" th:each="room : ${roomList}">
+										<div class="col-md-12 chatList" id="col-md-12"></div>
+										<span class="username2"></span>
+										<iframe src="" id="chatList" onload="Height();" frameborder="0" scrolling="no" style="overflow-x:hidden; overflow:auto; width:1000px; min-height:500px;"></iframe>
+											<div onclick="hideChatList()" id="hideBtn" style="display:none">닫기버튼</div>
 
-										<div class="col-md-6">
-							
-											<iframe src="/chat/1" height="300" width="100%"></iframe>
-										</div>
+										
 									</div>
 								</div>
 							</div>
@@ -248,12 +255,72 @@
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen">
 		<svg class="circular" width="48px" height="48px">
-			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
+    <circle class="path-bg" cx="24" cy="24" r="22" fill="none"
 				stroke-width="4" stroke="#eeeeee" />
-			<circle class="path" cx="24" cy="24" r="22" fill="none"
+    <circle class="path" cx="24" cy="24" r="22" fill="none"
 				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
+	<script>
+		$(document).ready(
+				function() {
+					$('.chat-li').each(function(index) {
+						$(this).attr('menu-index', index);
+					}).click(
+							function() {
+								var index = $(this).attr('menu-index');
+								$('.menu[menu-index=' + index + ']').addClass(
+										'clicked_menu');
+								$('.menu[menu-index!=' + index + ']')
+										.removeClass('clicked_menu');
+							});
 
+				});
+		function chatList(id){
+			if($("#chatList").attr("src")!="/chat/"+id){
+				
+				$("#chatList").attr("src","/chat/"+id)
+				$("#chatList").show();
+				$("#hideBtn").show();
+				var username=$("#name"+id).val();
+				$(".username2").text(username+"님과 대화중입니다.");
+				
+			}
+		}
+		function deleteChat(id){
+			var delID= id.replace ("delete","");
+
+				console.log(delID);
+			   $.ajax({
+		            type : "delete",
+		            url : "/deleteChat/"+delID,
+		            datatype : "json"
+
+		        }).done(function(resp) {
+		            alert("채팅방이 삭제되었습니다.")
+		            location.replace("/admin/roomList")
+		        }).fail(function(error) {
+		            alert("존재하지않는 채팅방입니다");
+		        })
+		}
+		function hideChatList(){
+			$("#chatList").attr("src","");
+			$("#chatList").hide();
+			$("#hideBtn").hide();
+			$(".username2").text("");
+			
+			
+		}
+		function Height() {
+	        var the_height =
+	            document.getElementById('chatList').contentWindow.
+	        document.body.scrollHeight;
+
+	        document.getElementById('chatList').height =
+	            the_height;
+
+	        document.getElementById('chatList').style.overflow = "hidden";
+	    }
+	</script>
 
 	<script src="/js/jquery.min.js"></script>
 	<script src="/js/jquery-migrate-3.0.1.min.js"></script>
@@ -272,6 +339,6 @@
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="/js/google-map.js"></script>
 	<script src="/js/main.js"></script>
-	
+
 </body>
 </html>

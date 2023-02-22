@@ -1,6 +1,8 @@
 const body = document.querySelector('body');
 const modal = document.querySelector('.modal');
+const modal2 = document.querySelector('.resmodal');
 const btnOpenPopup = document.querySelector('.btn-open-popup');
+const btnOpenPopup2 = document.querySelector('.checkres');
 
 btnOpenPopup.addEventListener('click', () => {
     modal.classList.toggle('show');
@@ -19,6 +21,26 @@ modal.addEventListener('click', (event) => {
         }
     }
 });
+
+btnOpenPopup2.addEventListener('click', () => {
+    modal2.classList.toggle('show');
+
+    if (modal2.classList.contains('show')) {
+        body.style.overflow = 'hidden';
+    }
+});
+
+modal2.addEventListener('click', (event) => {
+    if (event.target === modal2) {
+        modal2.classList.toggle('show');
+
+        if (!modal2.classList.contains('show')) {
+            body.style.overflow = 'auto';
+        }
+    }
+});
+
+
 
 const selectbtn = document.querySelectorAll(".select_btn");
 const id = document.querySelector("#uId").value;

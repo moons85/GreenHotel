@@ -34,18 +34,18 @@ public class FaqService {
     }
 
     public Page<Faq> 글검색(String title, String content, Pageable pageable) {
-    	
-    	if(title.equals("title")) {
-    		return faqRepository.findByTitleContaining(content,pageable);
-    	}
-    	else if(title.equals("category")) {
-    		return faqRepository.findByCategoryContaining(content,pageable);
-    	}
-    	else {
-    		return faqRepository.findByContentContaining(content,pageable);
-    	}
-    	
-        
+
+        if(title.equals("title")) {
+            return faqRepository.findByTitleContaining(content,pageable);
+        }
+        else if(title.equals("category")) {
+            return faqRepository.findByCategoryContaining(content,pageable);
+        }
+        else {
+            return faqRepository.findByContentContaining(content,pageable);
+        }
+
+
     }
 
     public Faq 상세보기(int id){

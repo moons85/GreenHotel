@@ -6,7 +6,9 @@ $('#idcheckbtn').on("click", function() {
     };
     // '컨트롤에 넘길 데이터 이름' : '데이터(.id_input에 입력되는 값)'
 
+
     var re = /^[a-zA-Z0-9]{4,12}$/;
+    var idcheckbtnvalue = document.querySelector("#idcheckbtnvalue").value;
 
 
     if (re.test(data.username) == false) {
@@ -24,6 +26,7 @@ $('#idcheckbtn').on("click", function() {
 
         }).done(function(data) {
 
+
             if (data.data > 0) {
                 $('.id_input_re_2').css("display","inline-block");
                 $('.id_input_re_1').css("display", "none");
@@ -31,7 +34,7 @@ $('#idcheckbtn').on("click", function() {
             } else {
                 $('.id_input_re_1').css("display","inline-block");
                 $('.id_input_re_2').css("display", "none");
-            }
+                $('input[name=checked_id]').attr('value',"value");			}
         }).error(function(request, status, error) {
             console.log(request);
         });

@@ -33,12 +33,12 @@ public class FaqController {
 
     @GetMapping("/auth/searchqnaform/{title}/{content}")
     public String searchqnaForm(Model model,@PathVariable String title,@PathVariable String content,@PageableDefault(size = 3, sort = "id", direction = Sort.Direction.DESC)Pageable pageable){
-    	
-    	Page<Faq> faqs=faqService.글검색(title,content,pageable);
-    	System.out.println(faqs);
+
+        Page<Faq> faqs=faqService.글검색(title,content,pageable);
+        System.out.println(faqs);
         model.addAttribute("faqs", faqs );
-        
-        
+
+
         return "/searchqnaform";
     }
 

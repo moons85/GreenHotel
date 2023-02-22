@@ -4,7 +4,7 @@ body{
 }
 
 .d-flex {
-  display: flex !important;
+    display: flex !important;
 }
 
 .card {
@@ -167,16 +167,16 @@ body{
 }
 
 .d-flex {
-  display: flex !important;
+    display: flex !important;
 }
 
 
 .align-items-center {
-  align-items: center !important;
+    align-items: center !important;
 }
 
 .justify-content-center {
-  justify-content: center !important;
+    justify-content: center !important;
 }
 
 .chat .chat-history .other-message {
@@ -184,11 +184,11 @@ body{
     text-align: right
 }
 .d-none {
-  display: none !important;
+    display: none !important;
 }
 
 .d-block {
-  display: block !important;
+    display: block !important;
 }
 
 .chat .chat-history .other-message:after {
@@ -221,21 +221,21 @@ body{
 }
 
 .float-right {
-/*     float: right; */
+    /*     float: right; */
     text-align: right;
     margin-right: 5%;
-    
+
 }
 .circle{
-	border-radius: 50%;
-	width: 25px;
-	height: 25px;
-	background-color: red;
-	margin-right: 25px;
-	float: right;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    margin-right: 25px;
+    float: right;
 }
 .staging-count{
-	color: white;
+    color: white;
 }
 
 .clearfix:after {
@@ -246,19 +246,19 @@ body{
     clear: both;
     height: 0;
 }
-    
+
 .input-group-prepend {
-	width: 100%;
-	height: 35px;
+    width: 100%;
+    height: 35px;
 }
 .input-group-prepend input{
-	width: 85%;
-	height: 100%;
+    width: 85%;
+    height: 100%;
 }
 
 .input-group-prepend button{
-	height: 90%;
-	margin-left: 10px;
+    height: 90%;
+    margin-left: 10px;
 }
 
 

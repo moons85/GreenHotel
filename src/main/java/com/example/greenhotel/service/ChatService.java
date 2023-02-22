@@ -1,6 +1,5 @@
 package com.example.greenhotel.service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -44,16 +43,6 @@ public class ChatService {
         return userRepository.findById(id);
     }
     /**
-     * 읽음표시
-     * @param ck 0이면 읽음
-     */
-//    @Transactional
-//    public void 읽음(String sen) {
-//    	Chat[] chat=chatRepository.findAllBySender(sen);
-//    	
-//    	
-//    }
-    /**
      * 채팅방 만들기
      * @param name 방 이름
      */
@@ -73,9 +62,9 @@ public class ChatService {
 
     }
     @Transactional
-    public void 채팅방삭제(int id) {
-    	
-    	chatRoomRepository.deleteById(id);
+    public void 채팅방삭제(User id) {
+    
+    	chatRoomRepository.deleteByUserId(id.getId());
     	
     	
     	
@@ -88,7 +77,7 @@ public class ChatService {
     	ChatRoom chatRoom =chatRoomRepository.findById(id).orElseThrow();
     	int chat=chatRepository.countByRoomId(id);
     	System.out.println("안읽은메세지수"+chat);
-    	chatRoom.setCount(chat);
+    	chatRoom.setMsgCount(chat);
     	
     	
     	
@@ -97,16 +86,31 @@ public class ChatService {
     public void 메세지읽음확인(int id,String sender) {
 
     	List<Chat> chat=chatRepository.읽음확인(id,sender);
-    	System.out.println("메세지읽음확인"+chat);
+
     	for (Chat e : chat) {
     		e.setReadck(1);
+
     	}
     }
     @Transactional
-    public void 접속(int id) {
+    public void 매니저접속(int id) {
+    	System.out.println(id);
     	ChatRoom chatRoom =chatRoomRepository.findById(id).orElseThrow();
     	LocalDateTime currentDate = LocalDateTime.now();
+
     	chatRoom.setReadDate(currentDate);
+
+    	
+    	
+    	
+    }
+    @Transactional
+    public void 유저접속(int id) {
+    	ChatRoom chatRoom =chatRoomRepository.findById(id).orElseThrow();
+    	LocalDateTime currentDate = LocalDateTime.now();
+    	
+    	chatRoom.setReadDate2(currentDate);
+    	
     	
     	
     	
@@ -119,7 +123,21 @@ public class ChatService {
     	
     	
     }
+    @Transactional
+    public int 방인원증가(int id) {
+    	ChatRoom chatRoom =chatRoomRepository.findById(id).orElseThrow();
     
+    	
+    	chatRoom.setUserCount(chatRoom.getUserCount()+1);
+    	return chatRoom.getUserCount();
+    }
+    @Transactional
+    public int 방인원감소(int id) {
+    	ChatRoom chatRoom =chatRoomRepository.findById(id).orElseThrow();
+    	
+    	chatRoom.setUserCount(chatRoom.getUserCount()-1);
+    	return chatRoom.getUserCount();
+    }
 
     /////////////////
     

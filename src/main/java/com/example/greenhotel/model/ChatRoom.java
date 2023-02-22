@@ -14,6 +14,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.data.annotation.CreatedDate;
 
 import lombok.AllArgsConstructor;
@@ -48,7 +50,10 @@ public class ChatRoom {
 	private String msg;
 	
 	@ColumnDefault("0")
-	private int count;
+	private int msgCount;
+	
+	@ColumnDefault("0")
+	private int userCount;
 	
 
 }

@@ -1,6 +1,6 @@
 let index = {
     init: function() {
-        $(".btn-primary").on("click", () => {
+        $("#btn_postqna").on("click", () => {
             this.test();
         });
         $("#deletebtn").on("click", () => {
@@ -64,6 +64,7 @@ let index = {
         })
     },
     search_qna: function (){
+        console.log("호출")
         const title= $("#search_category").val();
         const content = $("#search_data").val();
         console.log(title,content)
@@ -72,7 +73,7 @@ let index = {
             url:"/auth/searchqnaform/"+title+"/"+content,
             type:"get",
             datatype : "json",
-             }).done(function(resp) {
+        }).done(function(resp) {
             location.replace("/auth/searchqnaform/"+title+"/"+content)
         }).fail(function(error) {
         })

@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface FaqRepository extends JpaRepository<Faq, Integer> {
-	Page<Faq> findByTitleContaining(String keyword,Pageable pageable);
-	Page<Faq> findByCategoryContaining(String keyword,Pageable pageable);
-	Page<Faq> findByContentContaining(String keyword,Pageable pageable);
+    Page<Faq> findByTitleContaining(String keyword,Pageable pageable);
+    Page<Faq> findByCategoryContaining(String keyword,Pageable pageable);
+    Page<Faq> findByContentContaining(String keyword,Pageable pageable);
 }

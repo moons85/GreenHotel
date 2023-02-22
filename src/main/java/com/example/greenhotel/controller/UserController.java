@@ -1,13 +1,9 @@
 package com.example.greenhotel.controller;
 
-import com.example.greenhotel.model.Chat;
 import com.example.greenhotel.model.Event;
 import com.example.greenhotel.model.User;
 import com.example.greenhotel.repository.UserRepository;
-import com.example.greenhotel.service.AdminService;
-import com.example.greenhotel.service.EventService;
-import com.example.greenhotel.service.RoomService;
-import com.example.greenhotel.service.UserService;
+import com.example.greenhotel.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -38,12 +34,16 @@ public class UserController {
     @Autowired
     private RoomService roomService;
 
+    @Autowired
+    private ReservationService reservationService;
+
     public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     @GetMapping(value = {"", "/"})
-    public String index(){
+    public String index(Model model,@PageableDefault Pageable pageable){
+        model.addAttribute("rooms", roomService.방목록(pageable));
         return "/index";
     }
     @GetMapping("/auth/login")
@@ -67,6 +67,7 @@ public class UserController {
 //        User user = userService.회원찾기2(id);
         model.addAttribute("user",userService.회원찾기2(id));
         model.addAttribute("coupons",eventService.쿠폰목록(pageable));
+        model.addAttribute("res",reservationService.예약목록(pageable));
         return "/mypage";
     }
 
@@ -86,6 +87,7 @@ public class UserController {
     @GetMapping("/admin")
     public String admin(Model model,@PageableDefault Pageable pageable) {
         model.addAttribute("rooms", roomService.방목록(pageable));
+        model.addAttribute("reservation",reservationService.예약목록(pageable));
 
         List<String> price = new ArrayList<>();
         for(int i=1; i<13; i++) {

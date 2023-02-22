@@ -26,6 +26,6 @@ public interface ChatRepository extends JpaRepository<Chat, Integer> {
     @Query(value = "select message from chat where roomid=? order by id DESC LIMIT 1; ", nativeQuery = true)
     String findByIdOrderByIdDescLimit1(int roomid);
     
-    @Query(value = "select * from chat where readck=0  and roomid=? and sender !=? ; ", nativeQuery = true)
+    @Query(value = "select * from chat where roomid=? and sender !=? and readck=0; ", nativeQuery = true)
     List<Chat> 읽음확인(int roomid, String sender);
 }

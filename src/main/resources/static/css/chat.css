@@ -1,0 +1,147 @@
+@charset "UTF-8";
+
+.chat-ul {
+	padding-inline-start: 0px !important;
+	color: #b49178;
+	font-family: 'Nanum Gothic', sans-serif;
+	font-weight: 700;
+}
+
+.chat-li {
+	cursor: pointer;
+	padding: 5px 10px;
+	height: 80px;
+	border-bottom: 1px solid #b49178;
+}
+
+.clicked_menu {
+	background-color: #fff;
+}
+
+.chat-message {
+	color: #7b5f4b;
+	display: inline-block;
+	width: 80%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: inline-block;
+	margin-top: 10px;
+}
+
+.chat-textdiv {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+.chatdeletebtn {
+	cursor: pointer;
+}
+
+.chat-username {
+	font-size: 8pt;
+}
+
+.countbg {
+	position: absolute;
+	top: 60px;
+	right: 15px;
+	min-width: 8px;
+	height: 20px;
+	line-height: 20px;
+	margin-top: -11px;
+	padding: 0 6px;
+	font-weight: normal;
+	font-size: small;
+	color: white;
+	text-align: center;
+	background: #b49178;
+	border-radius: 11px;
+}
+
+.username2 {
+	margin-left: 10px;
+	font-weight: 700;
+	font-size: 15pt;
+	font-family: 'Nanum Gothic', sans-serif;
+	font-weight: 700;
+}
+
+.chatformdiv {
+	width: 100%;
+	display:grid;
+	grid-template-columns:1fr 90px;
+/* 	justify-content:space-between;
+ */	margin-top:20px;
+		background-color: #ede3db;
+	align-items:center;
+}
+
+.message-input{
+	width:80%;
+	border:none;
+	padding:15px;
+	margin:10px;
+	border-radius:10px;
+	outline:none;
+}
+
+.btn-message{
+		background: #b49178;
+	color:#fff;
+	border-radius:10px;
+	width:70px;
+	border:none;
+	height:40px;
+	margin:10px;
+}
+
+.iframe {
+	border: none;
+}
+
+.alert {
+	display: flex;
+	align-items: flex-end;
+	font-size: 8pt;
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
+.msg {
+	border: 1px solid #b49178;
+	padding: 10px;
+	border-radius: 10px;
+	max-width: 200px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.msgck {
+	display: flex;
+}
+
+.msgsend {
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+}
+
+.time {
+	color: #7b5f4b;
+}
+
+
+.chat-li:hover .countbg {
+	color: #b49178;
+	background: white;
+}
+
+.chat-li:hover {
+	background-color: #b49178;
+	color: #fff;
+}
+
+.chat-li:hover .chat-message {
+	color: #fff;
+}

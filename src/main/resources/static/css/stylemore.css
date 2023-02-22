@@ -1,257 +1,3 @@
-/*h3{*/
-/*  font-family: 'Hahmlet', serif;*/
-/*}*/
-
-/*p{*/
-/*  font-family: 'Nanum Gothic', sans-serif;*/
-/*}*/
-
-/*.btn2{*/
-/*  text-align: center;*/
-/*  font-size: 11pt;*/
-/*  margin-right: 10px;*/
-/*  font-family: 'Hahmlet', serif;*/
-
-/*}*/
-
-/*.name{*/
-/*  font-family: 'Hahmlet', serif;*/
-/*}*/
-
-/*.btn3{*/
-/*  font-size: 12pt;*/
-/*  padding: 5px 10px;*/
-/*  margin: 10px;*/
-/*}*/
-
-/*.btn4{*/
-/*  font-size: 13pt;*/
-/*}*/
-
-/*.btn5{*/
-/*  font-size: 10pt;*/
-/*  padding: 10px 12px;*/
-/*  margin: 10px;*/
-/*}*/
-
-/*.h2_title{*/
-/*  font-family: 'Hahmlet', serif;*/
-/*  letter-spacing: -2px;*/
-/*  font-weight: 300;*/
-/*}*/
-
-/*.heading{*/
-/*  font-family: 'Hahmlet', serif;*/
-/*  letter-spacing: -2px;*/
-/*  font-weight: 300;*/
-/*}*/
-
-/*.star{*/
-/*  color: #b49178;*/
-/*}*/
-
-/*.ellipsis{*/
-/*  overflow: hidden;*/
-/*  text-overflow: ellipsis;*/
-/*  display: -webkit-box;*/
-/*  -webkit-line-clamp: 3;*/
-/*  -webkit-box-orient: vertical;*/
-/*}*/
-
-/*.colbtn{*/
-/*  display: flex;*/
-/*  justify-content: flex-end;*/
-/*}*/
-
-/*#btnkakao{*/
-/*  border: #b49178 1px solid;*/
-/*  color: #b49178;*/
-/*  margin-right: 10px;*/
-/*}*/
-
-/*#btnkakao:hover{*/
-/*  color: #000;*/
-/*}*/
-
-/*.idcheckbtn{*/
-/*  padding: 10px 10px;*/
-/*  letter-spacing: 0;*/
-/*  font-family: 'Nanum Gothic', sans-serif;*/
-/*  font-weight: bold 700;*/
-/*  font-size: 10pt;*/
-/*  margin-top: 40px;*/
-/*  width: 100%;*/
-/*}*/
-
-/*#form-message-success{*/
-/*  text-align: right;*/
-/*}*/
-
-/*.btn_reservation{*/
-/*  padding: 10px 10px;*/
-/*  letter-spacing: 0;*/
-/*  font-family: 'Nanum Gothic', sans-serif;*/
-/*  font-weight: bold 700;*/
-/*  font-size: 10pt;*/
-/*}*/
-
-/*.pricestyle{*/
-/*  letter-spacing: -1px;*/
-/*  font-family: 'Hahmlet', serif;*/
-/*  color: #222;*/
-/*}*/
-
-/*li{*/
-/*  list-style: none;*/
-/*}*/
-
-/*.liststyle{*/
-/*  padding-inline-start: 0px;}*/
-
-/*.price2{*/
-/*  font-size: 14pt;*/
-/*}*/
-
-/*.h2_title2{*/
-/*  margin-bottom: 10px!important;*/
-/*  line-height: 1.2;*/
-/*}*/
-
-/*.reviewdetailbox{*/
-/*  min-height: 250px;*/
-/*  background: #fff;*/
-/*}*/
-/*.reviewdetailsub{*/
-/*  padding: 5px;*/
-/*  !* display: flex;*/
-/*  justify-content: flex-start; *!*/
-/*  background-color: #fff;*/
-/*  color:#b49178;*/
-/*  border-bottom: 1px solid #ddd;*/
-/*  padding-left: 15px;*/
-
-/*}*/
-
-/*.reviewdetailboxcontent{*/
-/*  padding: 10px;*/
-/*  font-size: 12pt;*/
-/*  font-family: 'Nanum Gothic', sans-serif;*/
-/*}*/
-
-/*.idtext{*/
-/*  font-size: 8pt;*/
-/*  line-height: -1;*/
-/*}*/
-
-/*.reviewtextarea{*/
-/*  resize: none;*/
-/*}*/
-
-/*.idvalue{*/
-/*  font-size: 16pt;*/
-/*  margin-top: 20px;*/
-/*}*/
-
-/*.btnpassword{*/
-/*  font-size: 11pt;*/
-/*  margin-top: 10px;*/
-/*}*/
-
-/*.h5title{*/
-/*  font-family: 'Hahmlet', serif;*/
-/*  letter-spacing: -2px;*/
-/*  font-weight: 400;*/
-/*  color: #fff;*/
-/*}*/
-
-/*.border-top-left-radius{*/
-/*  border-top-left-radius: 10px;*/
-/*}*/
-/*.border-top-right-radius{*/
-/*  border-top-right-radius: 10px;*/
-/*}*/
-/*.border-bottom-left-radius{*/
-/*  border-bottom-left-radius: 10px;*/
-/*}*/
-/*.border-bottom-right-radius{*/
-/*  border-bottom-right-radius: 10px;*/
-/*}*/
-/*.margin-bottom{*/
-/*  margin-bottom: 30px;*/
-/*}*/
-/*.roomlist{*/
-/*  padding-inline-start: 0px;*/
-/*}*/
-/*.shadow2{*/
-/*  -webkit-box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.1) !important;*/
-/*  box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.1) !important;*/
-/*}*/
-
-/*.h5title{*/
-/*  color: #b49178;*/
-/*}*/
-
-/*.btn6{*/
-/*  font-size: 12pt;*/
-/*  letter-spacing: 0;*/
-/*}*/
-
-/*.qnaanswer{*/
-/*  color: #222;*/
-/*  font-family: 'Nanum Gothic', sans-serif;*/
-/*  font-weight: 500;*/
-/*  font-size: 11pt;*/
-/*}*/
-
-/*.h5title{*/
-/*  color: #fff;*/
-/*  font-family: 'Nanum Gothic', sans-serif;*/
-/*  font-weight: 500;*/
-/*}*/
-
-/*.btn7{*/
-/*  color: #b49178!important;*/
-/*  border-color: #fff!important;*/
-/*  background-color: #fff!important;*/
-
-/*}*/
-
-/*.btn8{*/
-/*  background-color: #b49178!important;*/
-/*  color: #fff!important;*/
-/*  border-color: #fff!important;*/
-
-/*}*/
-
-/*.btn8:hover{*/
-/*  color: #b49178!important;*/
-/*  background-color: #fff!important;*/
-/*}*/
-
-/*.btn7:hover{*/
-/*  color: #222!important;*/
-/*  border-color: #fff!important;*/
-/*  background-color: #fff!important;*/
-
-/*}*/
-
-/*select {*/
-/*  -webkit-appearance:none; !* 크롬 화살표 없애기 *!*/
-/*  -moz-appearance:none; !* 파이어폭스 화살표 없애기 *!*/
-/*  appearance:none !* 화살표 없애기 *!*/
-/*}*/
-
-/*.form-control2{*/
-/*  border: none;*/
-/*  border-bottom: 1px solid rgba(0, 0, 0, 0.1);*/
-/*  border-radius:none;*/
-/*}*/
-
-
-/*@media (max-width: 760px) {*/
-/*  .idcheckbtn{*/
-/*    margin-top: 0px;}*/
-/*}*/
 h3{
   font-family: 'Hahmlet', serif;
 }
@@ -474,7 +220,6 @@ li{
   background-color: #b49178!important;
   color: #fff!important;
   border-color: #fff!important;
-
 }
 
 .btn8:hover{
@@ -486,7 +231,6 @@ li{
   color: #222!important;
   border-color: #fff!important;
   background-color: #fff!important;
-
 }
 
 select {
@@ -513,6 +257,63 @@ select {
 .text-descrandom{
   font-size:small;
   margin-top: 20px;
+}
+
+
+.text-descrandom{
+  font-size:small;
+  margin-top: 20px;
+  color:#b49178;
+}
+
+.tabletext{
+  color: #222;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size:10pt;
+}
+.tablehead{
+  border-bottom:1pt solid #b49178;
+  color:#b49178;
+}
+
+.tablehead>th{
+  padding-bottom:6px;
+
+}
+
+.tablebody{
+  border-bottom:1pt solid #eee;
+  color:#777;
+}
+
+.tablebody>td{
+  padding:8px;
+}
+
+.qform{
+  margin:20px;
+}
+
+.qform:focus{
+  outline:none!important;
+}
+
+.btn9{
+  min-height:50px;
+  font-size:10pt;
+
+}
+
+.qselectbox{
+  width:100px;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.02);
+  text-align:center;
+}
+
+.qselectbox:focus{
+  outline: none;
 }
 
 
