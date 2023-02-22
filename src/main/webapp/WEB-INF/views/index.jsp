@@ -587,7 +587,7 @@
                                         하러 가기</a>
                                 </c:when>
                                 <c:otherwise>
-                                    <button class="btn-open-popup btn-primary btn">지금 바로
+                                    <button class="btn-open-popup btn-primary btn" onclick="location.href='/reviewForm'">지금 바로
                                         리뷰 작성하기</button>
                                     <p class="text-descrandom">*리뷰 작성은 1회만 가능합니다.</p>
 

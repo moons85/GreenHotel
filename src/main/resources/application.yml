@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8085
   servlet:
     context-path: /
     encoding:
@@ -20,7 +20,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/greenhotel?useSSL=false&allowPublicKeyRetrieval=true
-    username: moons
+    username: giwan
     password: 1234
   mail:
     host: smtp.naver.com #smtp 서버 주소
@@ -34,7 +34,7 @@ spring:
   jpa:
     open-in-view: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       use-new-id-generator-mappings: false

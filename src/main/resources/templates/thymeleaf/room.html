@@ -12,6 +12,8 @@
         rel="stylesheet">
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/room.css">
+    <link rel="stylesheet" href="/css/chat.css">
+  
 </head>
 <body>
 <div id="main-content" class="container">
@@ -21,21 +23,21 @@
 
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-6 chatformdiv">
       <div class="form-group">
-        <input type="text" id="message" class="form-control"
+        <input type="text" id="message" class="message-input "
                placeholder="메시지 내용"
                onKeypress="javascript:if(event.keyCode==13){sendChat()}">
       </div>
       <div class="form-btn">
-        <button id="send" class="btn btn-default" onclick="sendChat()">전송</button>
+        <button id="send" class="btn btn-default btn-message" onclick="sendChat()">전송</button>
       </div>
     </div>
   </div>
 </div>
 </body>
 <script th:inline="javascript">
-
+  var userID =[[${userid}]];
   var roomId = [[${roomId}]];
   var chatList = [[${chatList}]];
   var sender1= [[${sender}]];
@@ -43,6 +45,8 @@
   var objDiv = document.getElementById("col-md-12");
   var classname;
   var classname2;
+  var socket = new SockJS('/stomp/chat');
+  var parent = window.parent.document;
   function time(difference){
 
     var now = new Date(difference);
@@ -104,13 +108,13 @@
 
   }
   function connect() {
-    objDiv.scrollTop = objDiv.scrollHeight;
-    var socket = new SockJS('/stomp/chat');
+	  $('#col-md-12').scrollTop($('#col-md-12')[0].scrollHeight);
     stompClient = Stomp.over(socket);
 
 
     stompClient.connect({}, function (frame) {
-      console.log("커넥트확인2");
+      plus();
+      readck();
       loadChat(chatList)
 
 
@@ -126,7 +130,9 @@
     if (stompClient !== null) {
       stompClient.disconnect();
     }
+    minus();
     setConnected(false);
+    
     console.log("Disconnected");
   }
 
@@ -139,7 +145,7 @@
 
 
 
-      objDiv.scrollTop = objDiv.scrollHeight;
+    	$('#col-md-12').scrollTop($('#col-md-12')[0].scrollHeight);
 
       stompClient.send("/send/"+roomId, {},
               JSON.stringify({
@@ -161,9 +167,9 @@
         var sender=chatList[chat].sender;
         var writeDay = new Date(chatList[chat].sendDate);
         classname=$(".msgck:last-child").attr('class');
-        classname1=$(".msgck:nth-last-child(2)").attr('class');
-        classtext=$(".col-6:last-child div .time ").text();
-        classtext1=$(".col-7:last-child div .time ").text();
+    	classname1=$(".msgck:nth-last-child(2)").attr('class');
+    	classtext=$(".col-6:last-child div .time ").text();
+    	classtext1=$(".col-7:last-child div .time ").text();
 
 
         //보낸사람
@@ -173,13 +179,16 @@
 
           var timer = time(writeDay);
 
-          str = "<div class='col-6 msgck'>";
-          str += "<div class='alert alert-secondary'>";
+          str = "<div class='col-6 msgck msgsend'>";
+          str += "<div class='alert alert-secondary '>";
 
           str += "<p class='time' id=s"+chatList[chat].id+">" + time(writeDay) + "</p>";
           if("col-6 msgck" == classname && timer == classtext){
             $(".msgck:last-child div .time").text("");
           }
+	  		if("0"==chatList[chat].readck){
+				str += "<span class='readck'>1</span>";
+			}
           str += "<p class='msg'>" + chatList[chat].message  + "</p>";
           str += "</div></div>";
 
@@ -197,15 +206,18 @@
           if("col-7 msgck" == classname && timer == classtext1 ){
             $(".msgck:last-child div .time").text("");
             str += "<p class='msg'>" + chatList[chat].message  + "</p>";
-
+            if("0"==chatList[chat].readck){
+				str += "<span class='readck1'>1</span>";
+			}
           }
+ 		 
           else{
-
-            str += "<p class='name'>" + chatList[chat].sender +"</p>";
-            str += "<p class='msg'>" + chatList[chat].message  + "</p>";
-
-
-          }
+				if("col-7 msgck" != classname){
+					 str += "<p class='name'>" + chatList[chat].sender +"</p>";	 
+				 }
+               str += "<p class='msg'>" + chatList[chat].message  + "</p>";
+               
+				
           num= chatList[chat].id;
           str += "<p class='time' id=r"+chatList[chat].id+">" + time(writeDay) + "</p>";
           str += "</div></div>";
@@ -214,12 +226,14 @@
           $(".col-md-12").append(str);
         }
 
-        objDiv.scrollTop = objDiv.scrollHeight;
+          $('#col-md-12').scrollTop($('#col-md-12')[0].scrollHeight);
       }
     }
   }
-
+  }
   function showChat(chatMessage) {
+	  readck();
+  
     var sender = chatMessage.sender;
     var writeDay = new Date();
     var timer = time(writeDay);
@@ -228,19 +242,17 @@
     classname1=$(".msgck:nth-last-child(2)").attr('class');
     classtext=$(".col-6:last-child div .time ").text();
     classtext1=$(".col-7:last-child div .time ").text();
-    console.log("1"+timer);
-    console.log("2"+classtext);
+    var userCnt = $("#userCnt").val();
 
     //보낸사람
     if(sender===sender1){
-      str = "<div class='col-6 msgck'>";
+      str = "<div class='col-6 msgck msgsend'>";
       str += "<div class='alert alert-secondary'>";
-      str += "<p class='time' id=s" + cktime + ">" + timer + "</p>";
+      str += "<p class='time chattime' id=s" + cktime + ">" + timer + "</p>";
       var text=$("#s"+cktime).text();
       if("col-6 msgck" == classname && timer == classtext ){
 
         $(".col-6:last-child div .time ").text("");
-        console.log("지워짐")
       }
 
       str += "<p class='msg'>" + chatMessage.message + "</p>";
@@ -260,12 +272,14 @@
         str += "<p class='msg'>" + chatMessage.message  + "</p>";
         str += "<p class='time' id=r" + cktime + ">" + timer + "</p>";
       }
-      else{
-        str += "<p class='name'id=name" + cktime + ">" + chatList[chat].sender +"</p>";
-        str += "<p class='msg'>" + chatMessage.message  + "</p>";
-        str += "<p class='time' id=r" + cktime + ">" + timer + "</p>";
-
-      }
+  		else{
+			if("col-7 msgck" != classname){
+			 str += "<p class='name'>" + chatList[chat].sender +"</p>";	 
+		 }
+			str += "<p class='msg'>" + chatMessage.message  + "</p>";
+			str += "<p class='time' id=r" + cktime + ">" + timer + "</p>";
+         
+		}
       str += "</div></div>";
       $(".col-md-12").append(str);
     }
@@ -273,35 +287,60 @@
 
     var str = '';
 
-    objDiv.scrollTop = objDiv.scrollHeight;
+    $('#col-md-12').scrollTop($('#col-md-12')[0].scrollHeight);
   }
 
-  function readck(){
-    const data ={
-      readck : sender1
-    }
-    $.ajax({
-      type:"POST",
-      url:"/readck",
-      data: data,
-      contentType: false,
-      processData: false,
-      enctype: "multipart/form-data",
-      dataType:"text"
-    }).done(function(resp) {
-
-
-    }).fail(function(error) {
-
-    })
-
+	function readck(){
+		
+		 $.ajax({
+		        type:"POST",
+		        url:"/readck/"+roomId,
+		        
+		    }).done(function(resp) {
+		    	
+		       
+		    }).fail(function(error) {
+		    	console.log("실패")
+		    })
+		
+	}
+  function minus(){
+  	console.log("마이너스")
+  	   $.ajax({
+		        type:"POST",
+		        url:"/minusCount/"+roomId,
+		        
+		    }).done(function(resp) {
+		    	$("#userCnt").val(resp);
+		    	
+		    	
+		       
+		    }).fail(function(error) {
+		    	console.log("실패")
+		    })
   }
+  function plus(){
+	  	
+	  	   $.ajax({
+			        type:"POST",
+			        url:"/plusCount/"+roomId,
+			        
+			    }).done(function(resp) {
+			    	$("#userCnt").val(resp);
+			    	
+			    	
+			       
+			    }).fail(function(error) {
+			    	console.log("실패")
+			    })
+	  }
 
 
 </script>
 <script>
   window.onload = function (){
     objDiv.scrollTop = objDiv.scrollHeight;
+    $('#col-md-12').scrollTop($('#col-md-12')[0].scrollHeight);
 
     connect();
 

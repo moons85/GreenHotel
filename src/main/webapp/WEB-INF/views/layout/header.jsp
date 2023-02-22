@@ -71,7 +71,7 @@
                         <li class="nav-item"><a href="/auth/about" class="nav-link">About</a></li>
                         <li class="nav-item"><a href="/auth/service" class="nav-link">Services</a></li>
                         <li class="nav-item"><a href="/auth/room" class="nav-link">Rooms</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Reviews</a></li>
+                        <li class="nav-item"><a href="/auth/review" class="nav-link">Reviews</a></li>
                         <li class="nav-item"><a href="/auth/login" class="nav-link">Login</a></li>
                     </c:when>
                     <c:when test="${principal.user.roleType == 'MANAGER'}">
@@ -79,7 +79,7 @@
                         <li class="nav-item"><a href="/auth/about" class="nav-link">About</a></li>
                         <li class="nav-item"><a href="/auth/service" class="nav-link">Services</a></li>
                         <li class="nav-item"><a href="/auth/room" class="nav-link">Rooms</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Reviews</a></li>
+                        <li class="nav-item"><a href="/auth/review" class="nav-link">Reviews</a></li>
                         <li class="nav-item"><a href="/admin/roomList" class="nav-link">Chat</a></li>
                         <li class="nav-item"><a href="/admin" class="nav-link">Admin</a></li>
                     </c:when>
@@ -88,7 +88,7 @@
                         <li class="nav-item"><a href="/auth/about" class="nav-link">About</a></li>
                         <li class="nav-item"><a href="/auth/service" class="nav-link">Services</a></li>
                         <li class="nav-item"><a href="/auth/room" class="nav-link">Rooms</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Reviews</a></li>
+                        <li class="nav-item"><a href="/auth/review" class="nav-link">Reviews</a></li>
                         <li class="nav-item"><a href="/mypage/${principal.user.id}" class="nav-link">Mypage</a></li>
                     </c:otherwise>
                 </c:choose>

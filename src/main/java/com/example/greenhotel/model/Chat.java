@@ -31,37 +31,37 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Chat {
 
-    @Id
-    @GeneratedValue(generator = "CHAT_SEQ_GENERATOR", strategy = GenerationType.AUTO)
-    private int id;
+	@Id
+	@GeneratedValue(generator = "CHAT_SEQ_GENERATOR", strategy = GenerationType.AUTO)
+	private int id;
 
-    private String sender;
+	private String sender;
 
-    @Column
-    private String message;
+	@Column
+	private String message;
 
-    @CreatedDate
-    @Column
-    private LocalDateTime sendDate;
-
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @ManyToOne(fetch = FetchType.EAGER)
+	@CreatedDate
+	@Column
+	private LocalDateTime sendDate;
+	
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "roomid")
-    private ChatRoom room;
+	private ChatRoom room;
+	
+	@ColumnDefault("1")
+	private int readck;
+	
+	
+	@Builder
+	public Chat(ChatRoom room, String sender, String message) {
+		this.room=room;
+		this.sender = sender;
+		this.message = message;
+		this.sendDate = LocalDateTime.now();
+	}
 
-    @ColumnDefault("1")
-    private int readck;
-
-
-    @Builder
-    public Chat(ChatRoom room, String sender, String message) {
-        this.room=room;
-        this.sender = sender;
-        this.message = message;
-        this.sendDate = LocalDateTime.now();
-    }
-
-    /**
+	/**
      * 채팅 생성
      * @param room 채팅 방
      * @param sender 보낸이
@@ -69,12 +69,12 @@ public class Chat {
      * @return Chat Entity
      */
     public static Chat createChat(ChatRoom room, String sender, String message) {
-
+    	
         return Chat.builder()
-                .room(room)
-                .sender(sender)
-                .message(message)
-                .build();
-
+        .room(room)
+        .sender(sender)
+        .message(message)
+        .build();
+        		
     }
 }

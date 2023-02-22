@@ -49,6 +49,9 @@ public class ReservationService {
     public Page<Reservation> 예약목록(Pageable pageable){
         return reservationsRepository.findAll(pageable);
     }
+    public List<Reservation> 예약리스트(){
+    	return reservationsRepository.findAll();
+    }
 
 
 
